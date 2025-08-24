@@ -13,6 +13,7 @@ import SEO from '../components/SEO.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
 
 import company from '../data/company.json';
+// import ServiceCategory from '../components/ServiceCategory.astro';
 
 const title = 'Ingeniería y Medio Ambiente para operaciones seguras y eficientes';
 const description = 'Soluciones integrales: gestión ambiental, prevención de riesgos, seguridad, higiene industrial y operación en minería.';
@@ -73,7 +74,8 @@ const image = company.image || '/og-image.jpg';
     <About />
     <CTA />
     <ContactCard />
-    <WhatsAppButton />
+    <!-- <ServiceCategory /> -->
   </main>
+  <WhatsAppButton />
   <Footer />
 </BaseLayout>
