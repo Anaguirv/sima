@@ -1,0 +1,9 @@
+---
+const { name, items } = Astro.props;
+---
+<article class="rounded-2xl border border-light p-6 hover:shadow-md transition">
+  <h3 class="text-xl font-semibold mb-3">{name}</h3>
+  <ul class="list-disc pl-5 space-y-1 text-slate-700">
+    {items.map((text:string) => <li>{text}</li>)}
+  </ul>
+</article>

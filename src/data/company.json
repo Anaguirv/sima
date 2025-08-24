@@ -1,0 +1,32 @@
+{
+  "brand": {
+    "name": "SIMA Ingeniería",
+    "tagline": "Servicios de Ingeniería & Medio Ambiente"
+  },
+  "mission": "Entregar las mejores soluciones a problemas de gestión medioambiental y, en general, soluciones de ingeniería mediante integración de conocimiento, tecnología, innovación y dinamismo, para el bienestar de clientes, empleados y comunidad.",
+  "vision": "Prestar servicios con máximo compromiso y profesionalismo, evaluando de forma crítica y con espíritu técnico los caminos hacia la solución, superando expectativas y logrando confianza e impactos cuantificables.",
+  "values": ["Compromiso", "Dinamismo", "Lealtad", "Profesionalismo"],
+  "address": "Av. Pacífico 5208, dpto. 104",
+  "city": "La Serena",
+  "region": "Coquimbo",
+  "country": "CL",
+  "taxId": "76.771.911-6",
+    "url": "https://simaingenieria.cl/",
+  "logo": "/logo.png",
+  "image": "/og-image.jpg",
+  "contacts": [
+    {
+      "name": "Gonzalo Acuña Bastías",
+      "role": "Director de Servicios y Proyectos",
+      "phone": "+56984086000",
+      "email": "gacuna@simaingenieria.cl"
+    },
+    {
+      "name": "Martín Arancibia González",
+      "role": "Director de Servicios y Proyectos",
+      "phone": "+56963410419",
+      "email": "marancibia@simaingenieria.cl"
+    }
+  ],
+  "whatsapp": "+56984086000"
+}

@@ -1,0 +1,12 @@
+---
+import services from '../data/services.json';
+import ServiceCategory from './ServiceCategory.astro';
+---
+<section id="servicios" class="mx-auto max-w-7xl px-4 py-16">
+  <h2 class="text-3xl font-bold mb-8">Servicios</h2>
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {services.categories.map((category) => (
+      <ServiceCategory name={category.name} items={category.items} />
+    ))}
+  </div>
+</section>

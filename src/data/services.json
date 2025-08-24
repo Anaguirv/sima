@@ -1,0 +1,69 @@
+{
+  "categories": [
+    {
+      "name": "Gestión Ambiental",
+      "items": [
+        "Declaraciones de Impacto Ambiental (DIA) y Estudios (EIA)",
+        "Planes de manejo, minimización y mitigación",
+        "Gestión de residuos: RISES, SIDREP, RILES",
+        "Monitoreos: agua, aire, ruido, flora y fauna",
+        "Emisiones de fuentes fijas (D.138)",
+        "Auditorías ambientales y cumplimiento legal",
+        "Diseño de tratamiento de residuos líquidos y sólidos",
+        "Capacitaciones e ITO Ambiental"
+      ]
+    },
+    {
+      "name": "Prevención de Riesgos",
+      "items": [
+        "Programas de prevención y reglamentos internos",
+        "Sistemas de gestión ISO 9001, 14001, 18001 e integrados",
+        "Comités Paritarios y relación OA Ley 16.744",
+        "Optimización DS-67 (sobretasa)",
+        "Gestión de riesgos según ISO 31000",
+        "Análisis de riesgos industriales",
+        "ITO en prevención de riesgos",
+        "Auditoría de cumplimiento legal"
+      ]
+    },
+    {
+      "name": "Seguridad y Emergencias",
+      "items": [
+        "Planes de emergencia y contingencia",
+        "Brigadas y simulacros (incendio, sismo, etc.)",
+        "Inspecciones y mapas de riesgos críticos",
+        "Procedimientos de trabajo seguro",
+        "Estudios de señalética e implementación",
+        "Capacitación: extintores, primeros auxilios, psicología de emergencia"
+      ]
+    },
+    {
+      "name": "Higiene Industrial",
+      "items": [
+        "Mediciones: ruido, iluminación, temperatura, gases y vibración",
+        "Protocolos: Prexor, TMERT, ISTAS 21, Planesis",
+        "Capacitaciones e ITO en salud ocupacional"
+      ]
+    },
+    {
+      "name": "Ergonomía",
+      "items": [
+        "Estudios y diagnósticos de puestos de trabajo",
+        "Capacitación: autocuidado, pausas saludables, manejo de carga"
+      ]
+    },
+    {
+      "name": "Ingeniería, Mantenimiento y Operación en Minería",
+      "items": [
+        "Operación y mantención de equipos de control ambiental",
+        "Aseo industrial y apoyo a interior mina y planta",
+        "Camiones aspiradores y maquinaria industrial",
+        "Estaciones de humectación y niebla seca (diseño y montaje)",
+        "Asesoría técnica en derrames y contaminación",
+        "Control de consumos de agua en faena",
+        "Obras civiles menores: arquitectura, eléctricos, sanitarios, climatización",
+        "Operación de plantas de tratamiento de aguas servidas"
+      ]
+    }
+  ]
+}

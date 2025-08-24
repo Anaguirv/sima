@@ -1,0 +1,43 @@
+---
+/** SEO / OG / Twitter cards
+ * Uso:
+ * <SEO
+ *   title="SIMA Ingeniería — Servicios de Ingeniería & Medio Ambiente"
+ *   description="Soluciones integrales: gestión ambiental, prevención de riesgos, seguridad, higiene industrial y operación en minería."
+ *   url="https://simaingenieria.cl/"
+ *   image="/og-image.jpg"         // pon una imagen 1200x630 en /public
+ *   siteName="SIMA Ingeniería"
+ *   locale="es_CL"
+ * />
+ */
+const {
+  title = 'SIMA Ingeniería',
+  description = 'Ingeniería y Medio Ambiente',
+  url = 'https://simaingenieria.cl/',
+  image = '/og-image.jpg',
+  siteName = 'SIMA Ingeniería',
+  locale = 'es_CL',
+  noIndex = false
+} = Astro.props;
+---
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={url} />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:locale" content={locale} />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={url} />
+<meta property="og:image" content={image} />
+<meta property="og:image:alt" content={title} />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={image} />
+
+{noIndex && <meta name="robots" content="noindex,nofollow" />}

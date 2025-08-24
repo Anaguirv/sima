@@ -1,0 +1,2 @@
+- Subir una imagen OG (1200×630) a /public/og-image.jpg.
+- Subir logotipo a /public/logo.png (usado por JSON-LD).

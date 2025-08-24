@@ -1,0 +1,20 @@
+---
+import company from '../data/company.json';
+---
+<section id="sobre" class="bg-slate-50">
+  <div class="mx-auto max-w-7xl px-4 py-16 grid md:grid-cols-2 gap-10">
+    <div>
+      <h2 class="text-3xl font-bold mb-4">Sobre nosotros</h2>
+      <p class="text-slate-700 mb-4"><strong>Misión:</strong> {company.mission}</p>
+      <p class="text-slate-700 mb-4"><strong>Visión:</strong> {company.vision}</p>
+    </div>
+    <div class="rounded-2xl border border-light p-6">
+      <h3 class="font-semibold mb-2">Valores</h3>
+      <ul class="flex flex-wrap gap-2">
+        {company.values.map((value) => (
+          <li class="px-3 py-1 rounded-full bg-primary/10 text-primary">{value}</li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

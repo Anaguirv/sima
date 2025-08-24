@@ -1,0 +1,25 @@
+---
+// Base layout component used by pages. It sets up the document structure,
+import '../styles/global.css'; 
+const { title = 'SIMA Ingeniería', description = 'Ingeniería y Medio Ambiente', ogImage } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    {ogImage && <meta property="og:image" content={ogImage} />} 
+    <link rel="icon" href="/favicon.svg" />
+    <meta name="theme-color" content="#1F7A4F" />
+    <!-- Import global Tailwind styles. When using Tailwind with the Vite plugin,
+         this import makes utility classes available throughout the site【189932648493271†L1122-L1133】. -->
+    <style>@import "../styles/global.css";</style>
+  </head>
+  <body class="min-h-screen bg-white text-dark antialiased">
+    <slot />
+  </body>
+</html>

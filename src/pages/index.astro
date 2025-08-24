@@ -1,11 +1,79 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import '../styles/global.css';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import ServiceList from '../components/ServiceList.astro';
+import About from '../components/About.astro';
+import CTA from '../components/CTA.astro';
+import ContactCard from '../components/ContactCard.astro';
+import Footer from '../components/Footer.astro';
+import SEO from '../components/SEO.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+
+import company from '../data/company.json';
+
+const title = 'Ingeniería y Medio Ambiente para operaciones seguras y eficientes';
+const description = 'Soluciones integrales: gestión ambiental, prevención de riesgos, seguridad, higiene industrial y operación en minería.';
+const url = company.url || 'https://simaingenieria.cl/';
+const image = company.image || '/og-image.jpg';
 ---
+<BaseLayout>
+  <head slot="head">
+    <SEO
+      title={`${
+        company.brand?.name ?? 'SIMA Ingeniería'
+      } — ${company.brand?.tagline ?? 'Servicios de Ingeniería & Medio Ambiente'}`}
+      description={description}
+      url={url}
+      image={image}
+      siteName={company.brand?.name ?? 'SIMA Ingeniería'}
+      locale="es_CL"
+    />
 
-<Layout>
-	<Welcome />
-</Layout>
+    <!-- JSON-LD Organization / LocalBusiness -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": company.brand?.name,
+      "url": url,
+      "description": description,
+      "logo": company.logo || "/logo.png",
+      "image": image,
+      "telephone": company.contacts?.map(c => c.phone).filter(Boolean),
+      "email": company.contacts?.map(c => c.email).filter(Boolean),
+      "taxID": company.taxId,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": company.address,
+        "addressLocality": company.city || "La Serena",
+        "addressRegion": company.region || "Coquimbo",
+        "addressCountry": company.country || "CL"
+      },
+      "sameAs": [
+        `https://wa.me/${(company.whatsapp || '').replace('+','')}`
+      ],
+      "areaServed": "CL",
+      "contactPoint": company.contacts?.map(c => ({
+        "@type": "ContactPoint",
+        "contactType": c.role || "sales",
+        "telephone": c.phone,
+        "email": c.email,
+        "areaServed": "CL",
+        "availableLanguage": ["es"]
+      }))
+    })}></script>
+  </head>
+
+  <Navbar />
+  <main>
+    <Hero title={title} subtitle={description} />
+    <ServiceList />
+    <About />
+    <CTA />
+    <ContactCard />
+    <WhatsAppButton />
+  </main>
+  <Footer />
+</BaseLayout>
