@@ -3,14 +3,14 @@ type Props = {
   title?: string;
   subtitle?: string;
   ctaHref?: string;
-  categories?: string[]; // rótulos inferiores (opcional)
+  categories?: string[];
 };
 
 const {
   title = 'Asesoría integral para una minería más eficiente, segura y rentable',
   subtitle = 'Soluciones completas para el desarrollo, ejecución y cierre de operaciones mineras e industriales, integrando servicios técnicos y estratégicos con foco en eficiencia, cumplimiento normativo y valor agregado.',
   ctaHref = '#servicios',
-  categories = ['LOGÍSTICA', 'GESTIÓN AMBIENTAL', 'MINERÍA', 'SEGURIDAD Y SALUD OCUPACIONAL', 'PERMISOLOGÍA'],
+  categories = [],
 } = Astro.props as Props;
 ---
 
@@ -19,36 +19,34 @@ const {
   class="relative min-h-[92svh] md:min-h-screen grid place-items-center bg-cover bg-center"
   style="background-image:url('/images/hero.jpg')"
 >
-  <!-- Scrim/overlay tipo Sustenta: teal + leve viñeta -->
-  <div class="absolute inset-0 bg-[#0C3D3A]/70"></div>
+  <!-- overlays -->
+  <div class="absolute inset-0 hero-overlay"></div>
   <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(120%_70%_at_50%_30%,transparent,rgba(0,0,0,.25))]"></div>
 
-  <!-- Contenido -->
+  <!-- contenido -->
   <div class="relative z-10 mx-auto w-full max-w-5xl px-4 text-center">
-    <h1 class="hero-title hero-shadow text-white font-extrabold leading-tight text-4xl sm:text-5xl lg:text-[56px] lg:leading-[1.1]">
-      {title}
-    </h1>
-    <p class="mt-5 text-white/90 text-base sm:text-lg lg:text-xl max-w-4xl mx-auto">
-      {subtitle}
-    </p>
+    <h1 class="hero-title hero-shadow text-white font-extrabold leading-tight text-4xl sm:text-5xl lg:text-[56px] lg:leading-[1.1]">{title}</h1>
+    <p class="mt-5 text-white/90 text-base sm:text-lg lg:text-xl max-w-4xl mx-auto">{subtitle}</p>
     <div class="mt-8 flex justify-center">
-      <a
-        href={ctaHref}
-        data-astro-prefetch
-        class="rounded-xl bg-[#166534] hover:bg-[#14532d] text-white px-7 py-3 font-semibold tracking-wide shadow-lg shadow-black/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 transition"
-      >
-        VER SERVICIOS
-      </a>
+      <a href={ctaHref} data-astro-prefetch class="btn-primary px-7 py-3">VER SERVICIOS</a>
     </div>
   </div>
 
-  <!-- Barra inferior de categorías (opcional) -->
+  <!-- barra categorías -->
   {categories.length > 0 && (
-    <div class="absolute bottom-0 left-0 right-0 z-10 bg-[#0B1F2A]/70 backdrop-blur-sm border-t border-white/10">
-      <div class="mx-auto max-w-7xl px-4">
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 divide-x divide-white/10 text-white/90 text-sm">
-          {categories.map((c) => (
-            <a href="#servicios" class="py-4 text-center font-semibold hover:text-white transition-colors">{c}</a>
+    <div class="absolute bottom-0 left-0 right-0 z-10 bg-[rgba(20,28,36,.7)] backdrop-blur-sm border-t border-white/10 p-4">
+      <div class="mx-auto max-w-7xl px-0">
+        <div
+          class="grid divide-x divide-white/10 text-white/90 text-sm"
+          style={`grid-template-columns: repeat(${categories.length}, minmax(0,1fr));`}
+        >
+          {categories.map((c: string) => (
+            <a
+              href="#servicios"
+              class="flex items-center justify-center h-16 px-3 text-center font-semibold hover:text-white transition-colors"
+            >
+              <span class="leading-tight">{c}</span>
+            </a>
           ))}
         </div>
       </div>

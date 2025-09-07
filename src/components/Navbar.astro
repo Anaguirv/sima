@@ -1,66 +1,21 @@
 ---
-import company from '../data/company.json';
+import DesktopNav from "@/components/DesktopNav";
+import MobileNav from "@/components/MobileNav";
+import company from "@/data/company.json";
 ---
 
-<!-- Header fijo que no empuja el contenido -->
-<header data-nav class="nav-base nav-glass">
-  <nav class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
-    <a href="/" class="font-semibold nav-brand">{company.brand.name}</a>
-    <div class="hidden md:flex items-center gap-6">
-      <a href="#servicios" class="nav-link">Servicios</a>
-      <a href="#sobre" class="nav-link">Sobre nosotros</a>
-      <a href="#contacto" class="nav-link">Contacto</a>
-      <a href={`https://wa.me/${company.whatsapp.replace('+', '')}`} class="rounded-2xl bg-primary text-white px-4 py-2 hover:bg-primary/90 transition-colors">
-        WhatsApp
-      </a>
-    </div>
-  </nav>
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-[color-mix(in_srgb,black_40%,transparent)] backdrop-blur border-b border-slate-300">
+  <div class="mx-auto max-w-7xl px-4 py-3 flex items-center">
+    <!-- Logo -->
+    <a href="/" class="shrink-0 inline-flex items-center gap-2" aria-label="Inicio SIMA Ingeniería">
+      <img src="/images/logo.png" alt="SIMA Ingeniería" class="h-10 sm:h-12 md:h-16 w-auto" />
+      <span class="sr-only">SIMA Ingeniería</span>
+    </a>
 
-  <!-- Cambia a “sólido” cuando ya no se ve el Hero -->
-  <script>
-    const nav = document.querySelector('[data-nav]');
-    const hero = document.querySelector('[data-hero]');
-    if (nav && hero) {
-      const io = new IntersectionObserver(([e]) => {
-        if (e.isIntersecting) {
-          nav.classList.remove('nav-solid');
-          nav.classList.add('nav-glass');
-        } else {
-          nav.classList.add('nav-solid');
-          nav.classList.remove('nav-glass');
-        }
-      }, { threshold: 0.01 });
-      io.observe(hero);
-    }
-  </script>
+    <!-- Desktop (isla React) -->
+    <DesktopNav whatsapp={company.whatsapp} client:load />
 
-  <style is:global>
-    /* Base: fijo arriba, sin desplazar el layout */
-    .nav-base {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 50;
-      transition: background-color .2s ease, color .2s ease, border-color .2s ease;
-    }
-
-    /* Estado inicial (sobre el Hero): vidrio/transparente y texto claro */
-    .nav-glass {
-      backdrop-filter: blur(8px);
-      background-color: rgb(255 255 255 / 0.10);
-      border-bottom: 1px solid rgb(255 255 255 / 0.10);
-      color: white;
-    }
-
-    /* Estado sólido (al salir del Hero): fondo claro y texto oscuro */
-    .nav-solid {
-      backdrop-filter: blur(8px);
-      background-color: rgb(255 255 255 / 0.90);
-      border-bottom: 1px solid #E5E7EB; /* light */
-      color: #1E293B; /* dark */
-    }
-
-    /* Hereda color del header (blanco u oscuro) */
-    .nav-brand, .nav-link { color: inherit; }
-    .nav-link:hover { color: var(--color-primary, #1F7A4F); }
-  </style>
+    <!-- Mobile (isla React) -->
+    <MobileNav whatsapp={company.whatsapp} client:load />
+  </div>
 </header>

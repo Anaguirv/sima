@@ -1,0 +1,60 @@
+---
+import { getCollection } from 'astro:content';
+
+// Carga todos los servicios y escoge "destacados" (featured: true)
+// Si no hay featured, toma los primeros 6 ordenados por "order" y "title".
+const all = await getCollection('services');
+
+function sortEntries(entries: typeof all) {
+  return entries
+    .slice()
+    .sort((a, b) => {
+      const fa = (a.data.featured ? 0 : 1);
+      const fb = (b.data.featured ? 0 : 1);
+      if (fa !== fb) return fa - fb;
+      const ao = a.data.order ?? 9999;
+      const bo = b.data.order ?? 9999;
+      if (ao !== bo) return ao - bo;
+      return a.data.title.localeCompare(b.data.title);
+    });
+}
+
+const sorted = sortEntries(all);
+const cards = sorted.slice(0, 6);
+---
+
+<section id="servicios" class="bg-white">
+  <div class="mx-auto max-w-7xl px-4 py-16">
+    <p class="uppercase text-sm tracking-wide text-brand font-semibold">Nuestros servicios</p>
+    <h2 class="mt-2 text-3xl md:text-4xl font-bold">Nos especializamos en</h2>
+    <a href="/services" class="btn-ghost">Ver todos</a>
+
+    <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {cards.map((entry, idx) => (
+        <article class="rounded-2xl bg-white border border-slate-300 shadow-sm overflow-hidden hover:shadow-md transition">
+          {entry.data.img && (
+            <img
+              src={`/${entry.data.img}`}
+              alt={entry.data.title}
+              class="h-40 w-full object-cover"
+              loading="lazy"
+            />
+          )}
+          <div class="p-6">
+            <h3 class="text-xl font-semibold">{entry.data.title}</h3>
+            {entry.data.description && (
+              <p class="mt-2 text-slate-700">
+                {entry.data.description.length > 120
+                  ? entry.data.description.slice(0, 117) + '…'
+                  : entry.data.description}
+              </p>
+            )}
+            <div class="mt-4 flex gap-3">
+              <a href={`/services/${entry.slug}`} class="btn-outline">Ver servicio</a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

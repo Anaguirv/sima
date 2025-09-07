@@ -1,81 +1,31 @@
 ---
-import '../styles/global.css';
-
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Hero from '../components/Hero.astro';
-import ServiceList from '../components/ServiceList.astro';
-import About from '../components/About.astro';
-import CTA from '../components/CTA.astro';
+import IntroSection from '../components/IntroSection.astro';
+import ServicesSection from '../components/ServicesSection.astro';
+import WhyChooseSection from '../components/WhyChooseSection.astro';
+import ConversationSection from '../components/ConversationSection.astro';
+import TestimonialsSection from '../components/TestimonialsSection.astro';
 import ContactCard from '../components/ContactCard.astro';
 import Footer from '../components/Footer.astro';
-import SEO from '../components/SEO.astro';
-import WhatsAppButton from '../components/WhatsAppButton.astro';
 
 import company from '../data/company.json';
-// import ServiceCategory from '../components/ServiceCategory.astro';
+import services from '../data/services.json';
 
 const title = 'Ingeniería y Medio Ambiente para operaciones seguras y eficientes';
-const description = 'Soluciones integrales: gestión ambiental, prevención de riesgos, seguridad, higiene industrial y operación en minería.';
-const url = company.url || 'https://simaingenieria.cl/';
-const image = company.image || '/og-image.jpg';
+const subtitle = 'Soluciones integrales con foco en cumplimiento, continuidad operacional y eficiencia.';
 ---
-<BaseLayout>
-  <head slot="head">
-    <SEO
-      title={`${
-        company.brand?.name ?? 'SIMA Ingeniería'
-      } — ${company.brand?.tagline ?? 'Servicios de Ingeniería & Medio Ambiente'}`}
-      description={description}
-      url={url}
-      image={image}
-      siteName={company.brand?.name ?? 'SIMA Ingeniería'}
-      locale="es_CL"
-    />
-
-    <!-- JSON-LD Organization / LocalBusiness -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": company.brand?.name,
-      "url": url,
-      "description": description,
-      "logo": company.logo || "/logo.png",
-      "image": image,
-      "telephone": company.contacts?.map(c => c.phone).filter(Boolean),
-      "email": company.contacts?.map(c => c.email).filter(Boolean),
-      "taxID": company.taxId,
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": company.address,
-        "addressLocality": company.city || "La Serena",
-        "addressRegion": company.region || "Coquimbo",
-        "addressCountry": company.country || "CL"
-      },
-      "sameAs": [
-        `https://wa.me/${(company.whatsapp || '').replace('+','')}`
-      ],
-      "areaServed": "CL",
-      "contactPoint": company.contacts?.map(c => ({
-        "@type": "ContactPoint",
-        "contactType": c.role || "sales",
-        "telephone": c.phone,
-        "email": c.email,
-        "areaServed": "CL",
-        "availableLanguage": ["es"]
-      }))
-    })}></script>
-  </head>
-
+<BaseLayout title={`${company.brand?.name ?? 'SIMA Ingeniería'} — ${company.brand?.tagline ?? 'Servicios de Ingeniería & Medio Ambiente'}`} description={subtitle}>
   <Navbar />
   <main>
-    <Hero title={title} subtitle={description} />
-    <ServiceList />
-    <About />
-    <CTA />
+    <Hero title={title} subtitle={subtitle} categories={services.categories.map((c) => c.name.toUpperCase())} />
+    <IntroSection />
+    <ServicesSection />
+    <WhyChooseSection />
+    <ConversationSection />
+    <TestimonialsSection />
     <ContactCard />
-    <!-- <ServiceCategory /> -->
   </main>
-  <WhatsAppButton />
   <Footer />
 </BaseLayout>

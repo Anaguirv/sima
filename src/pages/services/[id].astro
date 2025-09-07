@@ -1,0 +1,56 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/BaseLayout.astro';
+import WhatsAppButton from '../../components/WhatsAppButton.astro';
+
+export async function getStaticPaths() {
+  const services = await getCollection('services');
+  return services.map((service) => ({
+    params: { id: service.slug },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+const { data } = service;
+const { title, description, img, duration, price, keywords } = data;
+
+const { Content } = await render(service);
+---
+
+<Layout
+  title={title}
+  description={description ?? `Servicio: ${title}`}
+  keywords={(keywords ?? [title]).join(', ')}
+>
+  <section class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-2 gap-10 items-start">
+    <div class="space-y-6">
+      {img && (
+        <img
+          src={`/${img}`}
+          alt={title}
+          class="rounded-2xl shadow w-full object-cover"
+          loading="eager"
+        />
+      )}
+    </div>
+
+    <aside class="space-y-4">
+      <h1 class="text-3xl md:text-4xl font-bold">{title}</h1>
+      {description && <p class="text-slate-700">{description}</p>}
+
+      <ul class="text-sm text-slate-600 space-y-1">
+        {typeof duration === 'number' && <li><strong>Duración:</strong> {duration} min</li>}
+        {typeof price === 'number' && <li><strong>Precio:</strong> ${'{'}price.toLocaleString(){'}'}</li>}
+      </ul>
+
+      <div class="pt-4">
+        <WhatsAppButton label={`Consultar por ${title}`} />
+      </div>
+    </aside>
+  </section>
+
+  <section class="prose lg:prose-lg max-w-3xl mx-auto px-4 pb-16">
+    <Content />
+  </section>
+</Layout>

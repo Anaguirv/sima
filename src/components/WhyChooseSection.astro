@@ -1,0 +1,33 @@
+---
+const features = [
+  { title: 'Confianza', desc: 'Equipo senior, respuestas rápidas y soporte en faena.' },
+  { title: 'Calidad/Precio', desc: 'Excelencia técnica con la mejor relación costo-beneficio.' },
+  { title: 'Sostenibilidad', desc: 'Cumplimiento normativo y mejora continua del desempeño ambiental.' },
+];
+---
+<section class="bg-slate-100">
+  <div class="mx-auto max-w-7xl px-4 py-16 grid lg:grid-cols-2 gap-10 items-center">
+    <div>
+      <p class="uppercase text-sm tracking-wide text-brand font-semibold">¿Por qué elegirnos?</p>
+      <h2 class="mt-2 text-3xl md:text-4xl font-bold text-ink">Gestionamos tus desafíos, fortalecemos tus resultados</h2>
+      <div class="mt-6 grid sm:grid-cols-2 gap-4">
+        {features.map((f) => (
+          <div class="rounded-xl bg-white border border-slate-300 p-5 shadow-sm">
+            <div class="h-10 w-10 rounded-lg bg-brand-700/10 flex items-center justify-center mb-3">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" class="text-brand"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 class="font-semibold text-ink">{f.title}</h3>
+            <p class="text-ink/80 mt-1">{f.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div>
+      <div class="relative">
+        <img src="/images/why.jpg" alt="Equipo SIMA" class="w-full rounded-2xl shadow" />
+        <div class="absolute -top-4 -right-4 h-24 w-24 rounded-xl bg-white/60 border border-slate-300 backdrop-blur"></div>
+      </div>
+    </div>
+  </div>
+</section>

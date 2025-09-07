@@ -1,9 +1,26 @@
 ---
-const { name, items } = Astro.props;
+type Entry = {
+  slug: string;
+  data: {
+    title: string;
+  };
+};
+
+const { name, entries } = Astro.props as {
+  name: string;
+  entries: Entry[];
+};
 ---
-<article class="rounded-2xl border border-light p-6 hover:shadow-md transition">
-  <h3 class="text-xl font-semibold mb-3">{name}</h3>
-  <ul class="list-disc pl-5 space-y-1 text-slate-700">
-    {items.map((text:string) => <li>{text}</li>)}
+
+<article class="rounded-2xl bg-white p-6 shadow transition hover:shadow-lg hover:-translate-y-1 border border-slate-300">
+  <h3 class="text-xl font-semibold mb-3 text-brand">{name}</h3>
+  <ul class="list-disc pl-5 space-y-1 text-slate-800">
+    {entries.map((e) => (
+      <li>
+        <a href={`/services/${e.slug}`} class="hover:underline">
+          {e.data.title}
+        </a>
+      </li>
+    ))}
   </ul>
 </article>
