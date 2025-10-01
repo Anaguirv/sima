@@ -1,64 +1,32 @@
 ---
-import { getCollection } from 'astro:content';
-import Layout from '../../layouts/BaseLayout.astro';
+import Site from "@/layouts/Site.astro";
+import { getCollection } from "astro:content";
 
-type ServiceEntry = Awaited<ReturnType<typeof getCollection>>[number];
-
-const all = await getCollection('services');
-
-// agrupar por categoría y ordenar por "order" y "title"
-const byCategory = all.reduce<Record<string, ServiceEntry[]>>((acc, entry) => {
-  const cat = entry.data.category || 'Otros';
-  acc[cat] ||= [];
-  acc[cat].push(entry);
-  return acc;
-}, {});
-
-Object.keys(byCategory).forEach((cat) => {
-  byCategory[cat].sort((a, b) => {
-    const ao = a.data.order ?? 9999;
-    const bo = b.data.order ?? 9999;
-    if (ao !== bo) return ao - bo;
-    return a.data.title.localeCompare(b.data.title);
-  });
-});
-
-const categories = Object.keys(byCategory).sort();
+const services = (await getCollection("services"))
+  .sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999));
 ---
+<Site title="Servicios – SIMA Ingeniería" description="Portafolio de servicios de SIMA Ingeniería.">
+  <section class="mx-auto max-w-7xl px-4 py-12">
+    <h1 class="text-3xl md:text-4xl font-bold text-ink">Servicios</h1>
+    <p class="mt-2 text-ink/70">Soluciones de ingeniería, medio ambiente y operación.</p>
 
-<Layout title="Servicios" description="Listado completo de servicios por categoría">
-  <section class="max-w-7xl mx-auto px-4 py-12">
-    <h1 class="text-3xl md:text-4xl font-bold">Servicios</h1>
-    <p class="text-slate-600 mt-2">Explora nuestros servicios por categoría.</p>
-
-    <div class="mt-8 space-y-10">
-      {categories.map((cat) => (
-        <section>
-          <h2 class="text-2xl font-semibold">{cat}</h2>
-          <ul class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {byCategory[cat].map((entry) => (
-              <li class="border rounded-xl p-5 hover:shadow transition">
-                <a href={`/services/${entry.slug}`} class="block">
-                  {entry.data.img && (
-                    <img
-                      src={`/${entry.data.img}`}
-                      alt={entry.data.title}
-                      class="h-40 w-full object-cover rounded-lg mb-3"
-                      loading="lazy"
-                    />
-                  )}
-                  <h3 class="text-lg font-semibold">{entry.data.title}</h3>
-                  {entry.data.description && (
-                    <p class="text-sm text-slate-600 mt-1 line-clamp-2">
-                      {entry.data.description}
-                    </p>
-                  )}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </section>
+    <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {services.map(({ slug, data }) => (
+        <a href={`/services/${slug}/`} class="group rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-md transition">
+          <figure class="aspect-[4/3] w-full bg-slate-100">
+            <img src={data.img ?? "/images/placeholder.webp"} alt={data.title} class="h-full w-full object-cover" loading="lazy" />
+          </figure>
+          <div class="p-4">
+            <p class="text-[11px] uppercase tracking-wide text-[rgb(11,122,163)]/80 font-semibold">{data.category ?? "Servicio"}</p>
+            <h3 class="mt-1 text-lg font-semibold text-ink group-hover:text-[rgb(11,122,163)]">{data.title}</h3>
+            {data.description && <p class="mt-1 text-sm text-slate-600 line-clamp-2">{data.description}</p>}
+            <span class="mt-3 inline-flex items-center gap-1 text-[rgb(11,122,163)] text-sm font-medium">
+              Ver servicio
+              <svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M13 5l7 7l-7 7v-4H4v-6h9z"/></svg>
+            </span>
+          </div>
+        </a>
       ))}
     </div>
   </section>
-</Layout>
+</Site>

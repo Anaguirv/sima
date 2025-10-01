@@ -1,8 +1,8 @@
 ---
-title: Gestión de riesgos según ISO 31000
-description: Identificación, análisis, evaluación y tratamiento del riesgo bajo ISO 31000.
-img: images/services/prevencion/iso31000.jpg
-category: Prevención de Riesgos
+title: "Gestión de riesgos según ISO 31000"
+description: "Identificación, análisis, evaluación y tratamiento del riesgo bajo ISO 31000."
+img: "images/services/prevencion/iso31000.jpg"
+category: "Prevención de Riesgos"
 keywords: [ISO 31000, gestión de riesgos, matrices]
 order: 5
 ---

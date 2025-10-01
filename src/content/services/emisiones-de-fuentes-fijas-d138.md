@@ -1,8 +1,8 @@
 ---
-title: Emisiones de fuentes fijas (D.138)
-description: Evaluación y gestión de emisiones en fuentes fijas de acuerdo con D.S. 138.
-img: images/services/gestion-ambiental/emisiones.jpg
-category: Gestión Ambiental
+title: "Emisiones de fuentes fijas (D.138)"
+description: "Evaluación y gestión de emisiones en fuentes fijas de acuerdo con D.S. 138."
+img: "images/services/gestion-ambiental/emisiones.jpg"
+category: "Gestión Ambiental"
 keywords: [emisiones, fuentes fijas, D.138]
 order: 5
 ---

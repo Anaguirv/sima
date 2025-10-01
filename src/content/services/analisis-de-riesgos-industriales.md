@@ -1,8 +1,8 @@
 ---
-title: Análisis de riesgos industriales
-description: Estudios de riesgos para procesos, instalaciones y operaciones industriales.
-img: images/services/prevencion/riesgos-industriales.jpg
-category: Prevención de Riesgos
+title: "Análisis de riesgos industriales"
+description: "Estudios de riesgos para procesos, instalaciones y operaciones industriales."
+img: "images/services/prevencion/riesgos-industriales.jpg"
+category: "Prevención de Riesgos"
 keywords: [riesgos industriales, análisis, seguridad]
 order: 6
 ---

@@ -1,0 +1,72 @@
+---
+type ServiceFrontmatter = {
+  title: string;
+  description?: string;
+  img?: string;
+  category?: string;
+  keywords?: string[] | string;
+  featured?: boolean;
+  order?: number;
+};
+
+const items = await Astro.glob<ServiceFrontmatter>("../../content/services/*.md");
+
+// normaliza y ordena por `order` asc y luego por `title`
+const services = items
+  .map((s) => ({
+    ...s,
+    frontmatter: {
+      ...s.frontmatter,
+      keywords: Array.isArray(s.frontmatter.keywords)
+        ? s.frontmatter.keywords
+        : (s.frontmatter.keywords ?? "").toString().split(",").map(k => k.trim()).filter(Boolean),
+    }
+  }))
+  .sort((a, b) => (a.frontmatter.order ?? 999) - (b.frontmatter.order ?? 999) || a.frontmatter.title.localeCompare(b.frontmatter.title));
+---
+
+<section id="servicios" class="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8 py-12 md:py-16">
+  <header class="mb-8 md:mb-10">
+    <h2 class="text-2xl md:text-3xl font-bold hero-title">Servicios</h2>
+    <p class="mt-2 text-sm md:text-base text-muted-foreground">
+      Soluciones integrales en gestión ambiental, minería y seguridad.
+    </p>
+  </header>
+
+  <div class="services-grid">
+    {services.map(({ url, frontmatter }) => (
+      <article class={`service-card ${frontmatter.featured ? "service-featured" : ""}`}>
+        <a class="service-media" href={url}>
+          <img
+            src={frontmatter.img ?? "/images/placeholder-service.jpg"}
+            alt={frontmatter.title}
+            loading="lazy"
+            decoding="async"
+          />
+        </a>
+
+        <div class="service-body">
+          <a href={url}><h3 class="service-title">{frontmatter.title}</h3></a>
+          {frontmatter.description && (
+            <p class="service-desc">{frontmatter.description}</p>
+          )}
+
+          {(frontmatter.keywords?.length ?? 0) > 0 && (
+            <div class="service-meta">
+              {(frontmatter.keywords as string[]).slice(0, 4).map((k) => (
+                <span class="service-chip" aria-label="keyword">{k}</span>
+              ))}
+            </div>
+          )}
+
+          <div class="service-footer">
+            <a href={url} class="service-cta">Ver detalle</a>
+            {frontmatter.category && (
+              <span class="chip-brand">{frontmatter.category}</span>
+            )}
+          </div>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>

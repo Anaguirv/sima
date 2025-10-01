@@ -1,8 +1,8 @@
 ---
-title: Control de consumos de agua en faena
-description: Monitoreo y control de consumos hídricos para eficiencia y cumplimiento.
-img: images/services/mineria/agua-faena.jpg
-category: Ingeniería, Mantenimiento y Operación en Minería
+title: "Control de consumos de agua en faena"
+description: "Monitoreo y control de consumos hídricos para eficiencia y cumplimiento."
+img: "images/services/mineria/agua-faena.jpg"
+category: "Ingeniería, Mantenimiento y Operación en Minería"
 keywords: [agua, consumos, eficiencia hídrica]
 order: 6
 ---

@@ -109,19 +109,22 @@
   --sidebar-ring:var(--brand-500);
 }
 
-/* ===== Utilidades SIMA (clases personalizadas) ===== */
-.text-brand    { color: var(--brand-700); }
-.text-ink      { color: var(--ink); }
-.text-graphite { color: var(--graphite); }
+/* ===== Utilities Tailwind v4 para helpers de color ===== */
+@utility text-brand     { color: var(--brand-700); }
+@utility text-ink       { color: var(--ink); }
+@utility text-graphite  { color: var(--graphite); }
 
-.bg-brand      { background-color: var(--brand-600); }
-.bg-brand-700  { background-color: var(--brand-700); }
-.bg-graphite   { background-color: var(--graphite); }
-.bg-sima-soft  { background-color: color-mix(in srgb, var(--brand-700) 12%, white); }
+/* Si quieres también bg helpers como utilidades: */
+@utility bg-brand       { background-color: var(--brand-600); }
+@utility bg-brand-700   { background-color: var(--brand-700); }
+@utility bg-graphite    { background-color: var(--graphite); }
+/* bg-sima-soft la dejamos como clase normal porque no se usa con @apply */
 
+/* ===== Clases personalizadas (no usar con @apply) ===== */
+.bg-sima-soft { background-color: color-mix(in srgb, var(--brand-700) 12%, white); }
 .border-slate-300 { border-color: var(--slate-300); }
 
-/* Botones */
+/* Botones (clases reutilizables; NO usarlas dentro de @apply) */
 .btn-primary {
   @apply inline-flex items-center justify-center rounded-xl px-5 py-3 font-semibold text-white shadow transition-colors;
   background-color: var(--brand-700);
@@ -149,7 +152,6 @@
 :root{ color-scheme: light }
 html{ scroll-behavior: smooth }
 body{ color: var(--ink); background: white }
-
 
 /* Tailwind theme mapping */
 @theme inline {
@@ -192,10 +194,128 @@ body{ color: var(--ink); background: white }
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+  * { @apply border-border outline-ring/50; }
+  body { @apply bg-background text-foreground; }
 }
+
+/* ===== Services grid & cards ===== */
+.services-grid {
+  @apply grid gap-6 sm:gap-8;
+  grid-template-columns: repeat(1, minmax(0,1fr));
+}
+@media (min-width: 640px){ .services-grid{ grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (min-width: 1024px){ .services-grid{ grid-template-columns: repeat(3,minmax(0,1fr)); } }
+
+.service-card {
+  @apply relative overflow-hidden rounded-2xl border shadow-sm transition-all;
+  background: var(--card);
+  color: var(--card-foreground);
+  border-color: var(--border);
+}
+.service-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0,0,0,.08);
+}
+
+.service-media {
+  @apply block aspect-[16/10] w-full overflow-hidden;
+  background-color: color-mix(in srgb, var(--brand-700) 12%, white); /* antes: bg-sima-soft */
+}
+.service-media img {
+  @apply h-full w-full object-cover transition-transform duration-300;
+}
+.service-card:hover .service-media img { transform: scale(1.04); }
+
+.service-body { @apply p-5 md:p-6; }
+.service-title { @apply text-lg md:text-xl font-semibold tracking-tight; color: var(--foreground); }
+.service-desc  { @apply mt-2 text-sm leading-relaxed; color: var(--muted-foreground); }
+
+.service-meta { @apply mt-4 flex flex-wrap items-center gap-2; }
+.service-chip{
+  @apply px-3 py-1 rounded-full text-sm font-medium;
+  background-color: color-mix(in srgb, var(--brand-700) 10%, white);
+  color: var(--brand-700);
+}
+.dark .service-chip{
+  background-color: color-mix(in srgb, var(--brand-500) 22%, #0F1113);
+  color: var(--primary);
+}
+
+.service-footer {
+  @apply mt-5 flex items-center justify-between pt-4;
+  border-top: 1px solid var(--border);
+}
+
+/* EXPANSIÓN de btn-outline en service-cta (evita errores de apply) */
+.service-cta{
+  @apply inline-flex items-center justify-center rounded-xl px-5 py-3 font-semibold border transition-colors text-sm;
+  border-color: var(--brand-700);
+  color: var(--brand-700);
+}
+.service-cta:hover{
+  background-color: color-mix(in hsl, var(--brand-700) 12%, white);
+}
+
+/* Destacados */
+.service-featured {
+  outline: 2px solid color-mix(in srgb, var(--brand-600) 35%, transparent);
+  box-shadow: 0 8px 28px color-mix(in srgb, var(--brand-600) 18%, transparent);
+}
+
+/* ===== Service detail (página individual) ===== */
+.service-article {
+  @apply rounded-2xl border bg-card text-card-foreground shadow-sm;
+  border-color: var(--border);
+}
+
+/* Imagen hero */
+.service-hero { @apply overflow-hidden rounded-t-2xl; }
+.service-hero img { @apply w-full h-64 md:h-80 object-cover; }
+
+/* Header */
+.service-header { @apply p-6 md:p-8; }
+/* Ahora sí es válido usar text-brand porque lo definimos como @utility */
+.service-kicker { @apply text-sm font-semibold uppercase tracking-wide text-brand; }
+.service-title  { @apply mt-1 text-2xl md:text-3xl font-bold tracking-tight; }
+.service-subtitle { @apply mt-2 text-muted-foreground; }
+
+/* ===== Markdown map (contenido dentro del .md) ===== */
+.service-content { @apply p-6 md:p-8; }
+
+/* Encabezados */
+.service-content h2 { @apply mt-6 text-xl md:text-2xl font-semibold; color: var(--foreground); }
+.service-content h3 { @apply mt-5 text-lg md:text-xl font-semibold; color: var(--foreground); }
+
+/* Párrafos y listas */
+.service-content p  { @apply mt-3 leading-relaxed; color: var(--muted-foreground); }
+.service-content ul { @apply mt-4 list-disc pl-6 space-y-1; color: var(--muted-foreground); }
+.service-content ol { @apply mt-4 list-decimal pl-6 space-y-1; color: var(--muted-foreground); }
+
+/* Énfasis y enlaces */
+.service-content strong { color: var(--foreground); }
+.service-content a { color: var(--brand-700); text-decoration: underline; }
+.dark .service-content a { color: var(--primary); }
+
+/* Bloques de código */
+.service-content pre {
+  @apply mt-4 rounded-xl p-4 overflow-x-auto text-sm;
+  background: color-mix(in srgb, var(--brand-700) 8%, #0f1113);
+  color: var(--foreground);
+  border: 1px solid var(--border);
+}
+.service-content code { @apply px-1 py-0.5 rounded; background: color-mix(in srgb, var(--brand-700) 6%, white); }
+
+/* Citas */
+.service-content blockquote {
+  @apply mt-4 border-l-4 pl-4 italic;
+  border-color: var(--brand-600);
+  color: color-mix(in srgb, var(--foreground) 80%, white);
+}
+
+/* Tablas */
+.service-content table { @apply mt-4 w-full text-sm; border-collapse: separate; border-spacing: 0; }
+.service-content th, .service-content td { @apply border px-3 py-2; border-color: var(--border); }
+.service-content th { @apply font-semibold; background: color-mix(in srgb, var(--brand-700) 8%, white); }
+
+/* Separador */
+.service-content hr { @apply my-8 border-t; border-color: var(--border); }

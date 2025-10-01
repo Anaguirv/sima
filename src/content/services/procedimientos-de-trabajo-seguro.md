@@ -1,8 +1,8 @@
 ---
-title: Procedimientos de trabajo seguro
-description: Elaboración e implantación de PTS acordes a los riesgos de la operación.
-img: images/services/seguridad/pts.jpg
-category: Seguridad y Emergencias
+title: "Procedimientos de trabajo seguro"
+description: "Elaboración e implantación de PTS acordes a los riesgos de la operación."
+img: "images/services/seguridad/pts.jpg"
+category: "Seguridad y Emergencias"
 keywords: [PTS, seguridad operacional, instrucciones]
 order: 4
 ---

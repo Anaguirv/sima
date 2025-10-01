@@ -1,8 +1,8 @@
 ---
-title: Monitoreos: agua, aire, ruido, flora y fauna
-description: Campañas de monitoreo ambiental y elaboración de informes técnicos.
-img: images/services/gestion-ambiental/monitoreos.jpg
-category: Gestión Ambiental
+title: "Monitoreos: agua, aire, ruido, flora y fauna"
+description: "Campañas de monitoreo ambiental y elaboración de informes técnicos."
+img: "images/services/gestion-ambiental/monitoreos.jpg"
+category: "Gestión Ambiental"
 keywords: [monitoreos, agua, aire, ruido, flora, fauna]
 order: 4
 ---

@@ -1,8 +1,8 @@
 ---
-title: Mediciones: iluminación
-description: Evaluaciones de iluminación en puestos y áreas de trabajo.
-img: images/services/higiene/iluminacion.jpg
-category: Higiene Industrial
+title: "Mediciones: iluminación"
+description: "Evaluaciones de iluminación en puestos y áreas de trabajo."
+img: "images/services/higiene/iluminacion.jpg"
+category: "Higiene Industrial"
 keywords: [iluminación, higiene industrial]
 order: 2
 ---

@@ -1,8 +1,8 @@
 ---
-title: Auditorías ambientales y cumplimiento legal
-description: Auditorías basadas en cumplimiento legal y requisitos de la organización.
-img: images/services/gestion-ambiental/auditorias.jpg
-category: Gestión Ambiental
+title: "Auditorías ambientales y cumplimiento legal"
+description: "Auditorías basadas en cumplimiento legal y requisitos de la organización."
+img: "images/services/gestion-ambiental/auditorias.jpg"
+category: "Gestión Ambiental"
 keywords: [auditoría, cumplimiento legal, inspecciones]
 order: 6
 ---

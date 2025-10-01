@@ -1,8 +1,8 @@
 ---
-title: Asesoría técnica en derrames y contaminación
-description: Soporte técnico en incidentes de derrames y contaminación del medio ambiente.
-img: images/services/mineria/derrames.jpg
-category: Ingeniería, Mantenimiento y Operación en Minería
+title: "Asesoría técnica en derrames y contaminación"
+description: "Soporte técnico en incidentes de derrames y contaminación del medio ambiente."
+img: "images/services/mineria/derrames.jpg"
+category: "Ingeniería, Mantenimiento y Operación en Minería"
 keywords: [derrames, contaminación, respuesta]
 order: 5
 ---

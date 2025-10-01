@@ -1,8 +1,8 @@
 ---
-title: Gestión de residuos: RISES, SIDREP, RILES
-description: Declaración y gestión integral de residuos sólidos y líquidos, con reportabilidad a SEREMI y plataformas oficiales.
-img: images/services/gestion-ambiental/gestion-residuos.jpg
-category: Gestión Ambiental
+title: "Gestión de residuos: RISES, SIDREP, RILES"
+description: "Declaración y gestión integral de residuos sólidos y líquidos, con reportabilidad a SEREMI y plataformas oficiales."
+img: "images/services/gestion-ambiental/gestion-residuos.jpg"
+category: "Gestión Ambiental"
 keywords: [RISES, SIDREP, RILES, residuos, SEREMI]
 order: 3
 ---

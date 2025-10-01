@@ -1,8 +1,8 @@
 ---
-title: Planes de emergencia y contingencia
-description: Diseño de planes para respuesta ante emergencias y continuidad operacional.
-img: images/services/seguridad/planes-emergencia.jpg
-category: Seguridad y Emergencias
+title: "Planes de emergencia y contingencia"
+description: "Diseño de planes para respuesta ante emergencias y continuidad operacional."
+img: "images/services/seguridad/planescontingencia.webp"
+category: "Seguridad y Emergencias"
 keywords: [emergencias, contingencias, continuidad]
 order: 1
 ---

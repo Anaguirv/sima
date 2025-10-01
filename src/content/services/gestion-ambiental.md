@@ -1,8 +1,8 @@
 ---
-title: Gestión Ambiental
-description: Soluciones en DIA/EIA, monitoreos, cumplimiento legal y manejo de residuos.
-img: images/services/gestion-ambiental.jpg
-category: Gestión Ambiental
+title: "Gestión Ambiental"
+description: "Soluciones en DIA/EIA, monitoreos, cumplimiento legal y manejo de residuos."
+img: "images/services/gestion-ambiental.webp"
+category: "Gestión Ambiental"
 keywords: [gestión ambiental, DIA, EIA, residuos]
 featured: true
 order: 1

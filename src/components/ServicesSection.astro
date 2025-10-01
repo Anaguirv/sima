@@ -1,8 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
 
-// Carga todos los servicios y escoge "destacados" (featured: true)
-// Si no hay featured, toma los primeros 6 ordenados por "order" y "title".
 const all = await getCollection('services');
 
 function sortEntries(entries: typeof all) {
@@ -21,36 +19,65 @@ function sortEntries(entries: typeof all) {
 
 const sorted = sortEntries(all);
 const cards = sorted.slice(0, 6);
+
+// helper para usar en el template (sin TypeScript "as")
+const getKeywords = (k: unknown) => Array.isArray(k) ? k as string[] : [];
 ---
 
 <section id="servicios" class="bg-white">
   <div class="mx-auto max-w-7xl px-4 py-16">
-    <p class="uppercase text-sm tracking-wide text-brand font-semibold">Nuestros servicios</p>
-    <h2 class="mt-2 text-3xl md:text-4xl font-bold">Nos especializamos en</h2>
-    <a href="/services" class="btn-ghost">Ver todos</a>
+    <header class="flex items-end justify-between gap-4">
+      <div>
+        <p class="uppercase text-sm tracking-wide text-brand font-semibold">Nuestros servicios</p>
+        <h2 class="mt-2 text-3xl md:text-4xl font-bold">Nos especializamos en</h2>
+      </div>
 
-    <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {cards.map((entry, idx) => (
-        <article class="rounded-2xl bg-white border border-slate-300 shadow-sm overflow-hidden hover:shadow-md transition">
+      <!-- Link simple (evita btn-ghost). Usa utilidad Tailwind -->
+      <a href="/services" class="inline-flex items-center gap-2 text-brand font-semibold hover:underline">
+        Ver todos
+        <span aria-hidden>→</span>
+      </a>
+    </header>
+
+    <!-- Grid -->
+    <div class="services-grid mt-8">
+      {cards.map((entry) => (
+        <article class={`service-card ${entry.data.featured ? "service-featured" : ""}`}>
           {entry.data.img && (
-            <img
-              src={`/${entry.data.img}`}
-              alt={entry.data.title}
-              class="h-40 w-full object-cover"
-              loading="lazy"
-            />
+            <a href={`/services/${entry.slug}`} class="service-media">
+              <!-- Si en tus .md usas rutas absolutas como "/images/...", úsalas tal cual -->
+              <img
+                src={entry.data.img}
+                alt={entry.data.title}
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
           )}
-          <div class="p-6">
-            <h3 class="text-xl font-semibold">{entry.data.title}</h3>
+
+          <div class="service-body">
+            <a href={`/services/${entry.slug}`}><h3 class="service-title">{entry.data.title}</h3></a>
+
             {entry.data.description && (
-              <p class="mt-2 text-slate-700">
+              <p class="service-desc">
                 {entry.data.description.length > 120
                   ? entry.data.description.slice(0, 117) + '…'
                   : entry.data.description}
               </p>
             )}
-            <div class="mt-4 flex gap-3">
-              <a href={`/services/${entry.slug}`} class="btn-outline">Ver servicio</a>
+
+            <!-- Chips opcionales: keywords/categoría si existen -->
+            {getKeywords(entry.data.keywords).length > 0 && (
+              <div class="service-meta">
+                {getKeywords(entry.data.keywords).slice(0, 4).map((k) => (
+                  <span class="service-chip">{k}</span>
+                ))}
+              </div>
+            )}
+
+            <div class="service-footer">
+              <a href={`/services/${entry.slug}`} class="service-cta">Ver servicio</a>
+              {entry.data.category && <span class="service-chip">{entry.data.category}</span>}
             </div>
           </div>
         </article>

@@ -1,8 +1,8 @@
 ---
-title: Operación y mantención de equipos de control ambiental
-description: Operación y mantenimiento de equipos de control de emisiones y procesos ambientales.
-img: images/services/mineria/control-ambiental.jpg
-category: Ingeniería, Mantenimiento y Operación en Minería
+title: "Operación y mantención de equipos de control ambiental"
+description: "Operación y mantenimiento de equipos de control de emisiones y procesos ambientales."
+img: "images/services/mineria/instrumentosambiental.webp"
+category: "Ingeniería, Mantenimiento y Operación en Minería"
 keywords: [operación, mantención, control ambiental]
 order: 1
 ---

@@ -1,8 +1,8 @@
 ---
-title: Declaraciones de Impacto Ambiental (DIA) y Estudios (EIA)
-description: Elaboración de DIA y EIA conforme a normativa vigente, con enfoque en mitigación y cumplimiento regulatorio.
-img: images/services/gestion-ambiental/dia-eia.jpg
-category: Gestión Ambiental
+title: "Declaraciones de Impacto Ambiental (DIA) y Estudios (EIA)"
+description: "Elaboración de DIA y EIA conforme a normativa vigente, con enfoque en mitigación y cumplimiento regulatorio."
+img: "images/services/gestion-ambiental/dia-eia.webp"
+category: "Gestión Ambiental"
 keywords: [DIA, EIA, evaluación ambiental, SEIA, mitigación]
 order: 1
 ---

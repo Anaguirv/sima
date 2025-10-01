@@ -1,8 +1,8 @@
 ---
-title: ITO en prevención de riesgos
-description: Inspección Técnica de Obra enfocada en seguridad y salud ocupacional.
-img: images/services/prevencion/ito-prevencion.jpg
-category: Prevención de Riesgos
+title: "ITO en prevención de riesgos"
+description: "Inspección Técnica de Obra enfocada en seguridad y salud ocupacional."
+img: "images/services/prevencion/ito-prevencion.jpg"
+category: "Prevención de Riesgos"
 keywords: [ITO, prevención, seguridad]
 order: 7
 ---

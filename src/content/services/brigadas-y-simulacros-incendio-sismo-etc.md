@@ -1,8 +1,8 @@
 ---
-title: Brigadas y simulacros (incendio, sismo, etc.)
-description: Constitución y entrenamiento de brigadas, con ejecución de simulacros.
-img: images/services/seguridad/brigadas-simulacros.jpg
-category: Seguridad y Emergencias
+title: "Brigadas y simulacros (incendio, sismo, etc.)"
+description: "Constitución y entrenamiento de brigadas, con ejecución de simulacros."
+img: "images/services/seguridad/brigadas-simulacros.jpg"
+category: "Seguridad y Emergencias"
 keywords: [brigadas, simulacros, incendio, sismo]
 order: 2
 ---

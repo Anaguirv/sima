@@ -1,8 +1,8 @@
 ---
-title: Mediciones: gases
-description: Medición de gases en ambientes de trabajo y elaboración de informes.
-img: images/services/higiene/gases.jpg
-category: Higiene Industrial
+title: "Mediciones: gases"
+description: "Medición de gases en ambientes de trabajo y elaboración de informes."
+img: "images/services/higiene/gases.jpg"
+category: "Higiene Industrial"
 keywords: [gases, higiene industrial]
 order: 4
 ---
