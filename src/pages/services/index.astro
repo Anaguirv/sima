@@ -79,38 +79,94 @@ const CATEGORIES = ["Todas", ...CATS.categories.map((c) => c.name)];
     </div>
   </section>
 
-  <!-- Script: filtro categoría -->
+    <!-- Script: filtro categoría + lectura desde URL -->
   <script is:inline>
-    const chips = document.querySelectorAll('.svc-chip');
-    const select = document.getElementById('svc-filter');
-    const cards = document.querySelectorAll('.svc-card');
+  const chips = document.querySelectorAll('.svc-chip');
+  const select = document.getElementById('svc-filter');
+  const cards = document.querySelectorAll('.svc-card');
+  const grid = document.getElementById('svc-grid');
 
-    function applyFilter(cat) {
-      const target = (cat || 'Todas').trim().toLowerCase();
-      cards.forEach(card => {
-        const c = (card.getAttribute('data-cat') || '').trim().toLowerCase();
-        card.style.display = (target === 'todas' || c === target) ? '' : 'none';
-      });
+  // 🧩 Suaviza el scroll hasta el grid
+  function smoothScrollToGrid() {
+    if (grid) {
+      const offsetTop = grid.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
     }
+  }
 
-    chips.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const cat = btn.getAttribute('data-cat');
-        chips.forEach(b => b.setAttribute('aria-pressed', 'false'));
-        btn.setAttribute('aria-pressed', 'true');
-        if (select) select.value = cat;
-        applyFilter(cat);
-      });
+  // 🔍 Aplica filtro a las cards según la categoría
+  function applyFilter(cat) {
+    const target = (cat || 'Todas').trim().toLowerCase();
+    cards.forEach(card => {
+      const c = (card.getAttribute('data-cat') || '').trim().toLowerCase();
+      const visible = (target === 'todas' || c === target);
+      card.style.display = visible ? '' : 'none';
+      // transición de aparición
+      card.style.opacity = visible ? '1' : '0';
+      card.style.transform = visible ? 'translateY(0)' : 'translateY(10px)';
     });
+  }
 
-    if (select) {
-      select.addEventListener('change', (e) => {
-        const cat = e.target.value;
-        chips.forEach(b => b.setAttribute('aria-pressed', b.getAttribute('data-cat') === cat ? 'true' : 'false'));
-        applyFilter(cat);
-      });
-    }
+  // 🎨 Marca visualmente la categoría activa
+  function setActive(cat) {
+    const target = (cat || 'Todas').trim();
+    chips.forEach(btn => {
+      const match = btn.getAttribute('data-cat') === target;
+      btn.setAttribute('aria-pressed', match ? 'true' : 'false');
+      btn.classList.toggle('bg-[rgba(11,122,163,.08)]', match);
+      btn.classList.toggle('border-[rgba(11,122,163,.25)]', match);
+      btn.classList.toggle('text-[rgb(8,62,82)]', match);
+    });
+    if (select) select.value = target;
+  }
 
-    applyFilter('Todas');
-  </script>
-</Site>
+  // 🧭 Guarda y lee filtro actual desde la URL
+  function updateURL(cat) {
+    history.replaceState(null, '', `?cat=${encodeURIComponent(cat)}`);
+  }
+
+  // 💾 Guarda preferencia del usuario en localStorage
+  function saveFilter(cat) {
+    localStorage.setItem('svc-last-cat', cat);
+  }
+
+  function loadFilter() {
+    return localStorage.getItem('svc-last-cat') || 'Todas';
+  }
+
+  // 🖱️ Eventos: clics en chips (desktop)
+  chips.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const cat = btn.getAttribute('data-cat');
+      setActive(cat);
+      applyFilter(cat);
+      updateURL(cat);
+      saveFilter(cat);
+      smoothScrollToGrid();
+    });
+  });
+
+  // 📱 Eventos: cambio en el select (móvil)
+  if (select) {
+    select.addEventListener('change', (e) => {
+      const cat = e.target.value;
+      setActive(cat);
+      applyFilter(cat);
+      updateURL(cat);
+      saveFilter(cat);
+      smoothScrollToGrid();
+    });
+  }
+
+  // 🚀 Al cargar: decide qué filtro usar
+  const params = new URLSearchParams(location.search);
+  const urlCat = params.get('cat');
+  const storedCat = loadFilter();
+  const startCat = urlCat || storedCat || 'Todas';
+
+  setActive(startCat);
+  applyFilter(startCat);
+
+  // 💨 Transición sutil al cargar
+  grid.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+</script>
