@@ -1,0 +1,165 @@
+/* ===========================================================
+   Estilos corporativos SIMA - Detalle de Servicios (.md)
+   =========================================================== */
+
+/* Contenedor principal del artículo */
+.prose-sima {
+  max-width: 85ch;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #33363A;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(8, 62, 82, 0.08);
+  border: 1px solid rgba(11, 122, 163, 0.08);
+}
+
+/* Encabezado principal */
+.prose-sima h1 {
+  background: linear-gradient(to right, #083E52, #0B7AA3);
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 700;
+  padding: 0.8rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+  letter-spacing: 0.4px;
+}
+
+/* Subtítulos (##) */
+.prose-sima h2 {
+  font-size: 1.4rem;
+  color: #083E52;
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid rgba(11, 122, 163, 0.25);
+}
+
+.prose-sima h2::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 3px;
+  background-color: #0B7AA3;
+  margin-top: 0.4rem;
+  border-radius: 2px;
+}
+
+/* Títulos menores (###) */
+.prose-sima h3 {
+  font-size: 1.2rem;
+  color: #0B7AA3;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Párrafos */
+.prose-sima p {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+/* Listas */
+.prose-sima ul {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+  list-style: disc;
+}
+.prose-sima ul li {
+  margin-bottom: 0.4rem;
+  color: #333;
+}
+.prose-sima ul li::marker {
+  color: #0B7AA3;
+  font-weight: 600;
+}
+
+/* Citas */
+.prose-sima blockquote {
+  border-left: 4px solid #0B7AA3;
+  background-color: rgba(11, 122, 163, 0.05);
+  padding: 1rem 1.25rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: #083E52;
+  border-radius: 0 8px 8px 0;
+}
+
+/* Separadores */
+.prose-sima hr {
+  border: none;
+  border-top: 1px dashed rgba(8, 62, 82, 0.25);
+  margin: 3rem 0;
+}
+
+/* Enlaces */
+.prose-sima a {
+  color: #0B7AA3;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+.prose-sima a:hover {
+  color: #083E52;
+}
+
+/* Imágenes */
+.prose-sima img {
+  display: block;
+  max-width: 100%;
+  margin: 2rem auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+/* Bloques especiales (## Alcance, ## Beneficios, etc.) */
+.prose-sima h2:has(+ ul),
+.prose-sima h2:has(+ p),
+.prose-sima h2:has(+ div) {
+  scroll-margin-top: 5rem;
+}
+
+/* Destacar secciones clave */
+.prose-sima h2:contains("Alcance"),
+.prose-sima h2:contains("Beneficios"),
+.prose-sima h2:contains("Qué incluye") {
+  background: linear-gradient(to right, #083E52, #0B7AA3);
+  color: white;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1.3rem;
+  letter-spacing: 0.3px;
+}
+
+.prose-sima h2:contains("Alcance") + ul,
+.prose-sima h2:contains("Beneficios") + ul,
+.prose-sima h2:contains("Qué incluye") + ul {
+  background: rgba(11, 122, 163, 0.04);
+  border-left: 4px solid #0B7AA3;
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.75rem;
+}
+
+/* Tablas */
+.prose-sima table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.95rem;
+}
+.prose-sima th, .prose-sima td {
+  border: 1px solid rgba(8, 62, 82, 0.15);
+  padding: 0.75rem;
+  text-align: left;
+}
+.prose-sima th {
+  background-color: rgba(11, 122, 163, 0.08);
+  color: #083E52;
+  font-weight: 600;
+}

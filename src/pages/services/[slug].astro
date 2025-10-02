@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Site from "@/layouts/Site.astro";
+import "@/styles/service-detail.css";
 
 export async function getStaticPaths() {
   const entries = await getCollection("services");
