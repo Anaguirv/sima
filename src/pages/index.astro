@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from '../layouts/Site.astro';
 import Navbar from '../components/Navbar.astro';
 import Hero from '../components/Hero.astro';
 import IntroSection from '../components/IntroSection.astro';
@@ -13,11 +13,12 @@ import ServicesGrid from "@/components/ServicesGrid.astro";
 
 import company from '../data/company.json';
 import services from '../data/services.json';
+import Site from '../layouts/Site.astro';
 
 const title = 'Ingeniería y Medio Ambiente para operaciones seguras y eficientes';
 const subtitle = 'Soluciones integrales con foco en cumplimiento, continuidad operacional y eficiencia.';
 ---
-<BaseLayout title={`${company.brand?.name ?? 'SIMA Ingeniería'} — ${company.brand?.tagline ?? 'Servicios de Ingeniería & Medio Ambiente'}`} description={subtitle}>
+<Site title={`${company.brand?.name ?? 'SIMA Ingeniería'} — ${company.brand?.tagline ?? 'Servicios de Ingeniería & Medio Ambiente'}`} description={subtitle}>
   <Navbar />
   <main>
     <Hero title={title} subtitle={subtitle} categories={services.categories.map((c) => c.name.toUpperCase())} />
@@ -29,4 +30,4 @@ const subtitle = 'Soluciones integrales con foco en cumplimiento, continuidad op
     <ContactCard />
   </main>
   <Footer />
-</BaseLayout>
+</Site>

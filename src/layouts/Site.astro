@@ -6,11 +6,11 @@ import Navbar from "@/components/Navbar.astro";
 import Footer from "@/components/Footer.astro";
 import WhyChooseSection from "@/components/WhyChooseSection.astro";
 import ContactCard from "@/components/ContactCard.astro";
+import WhatsAppButton from "@/components/WhatsAppButton.astro"; // ✅ agregado aquí
 
 // Datos de la compañía
-import company from "@/data/company.json"; // el JSON que pegaste
+import company from "@/data/company.json";
 
-// Props opcionales por si alguna página quiere ocultar secciones
 const {
   title = `${company.brand.name} – ${company.brand.tagline}`,
   description = company.mission,
@@ -19,6 +19,7 @@ const {
   showContactCard = true,
 } = Astro.props;
 ---
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -35,7 +36,7 @@ const {
     <meta name="theme-color" content="#0B7AA3" />
   </head>
 
-  <body class="min-h-screen bg-white text-ink antialiased">
+  <body class="min-h-screen bg-white text-ink antialiased relative">
     <Navbar />
 
     <main class="min-h-[60vh]">
@@ -44,7 +45,9 @@ const {
 
     {showWhyChoose && <WhyChooseSection />}
     {showContactCard && <ContactCard company={company} />}
-
     <Footer />
+
+    <!-- ✅ Botón WhatsApp global -->
+    <WhatsAppButton />
   </body>
 </html>
