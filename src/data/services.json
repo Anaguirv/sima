@@ -3,66 +3,49 @@
     {
       "name": "Gestión Ambiental",
       "items": [
-        "Declaraciones de Impacto Ambiental (DIA) y Estudios (EIA)",
-        "Planes de manejo, minimización y mitigación",
-        "Gestión de residuos: RISES, SIDREP, RILES",
-        "Monitoreos: agua, aire, ruido, flora y fauna",
-        "Emisiones de fuentes fijas (D.138)",
-        "Auditorías ambientales y cumplimiento legal",
-        "Diseño de tratamiento de residuos líquidos y sólidos",
-        "Capacitaciones e ITO Ambiental"
+        "Estudios y Evaluaciones Ambientales (DIA/EIA, Auditorías, Emisiones D.S.138)",
+        "Monitoreos y Control Ambiental (agua, aire, flora, fauna, ruido, planes de mitigación)",
+        "Gestión y Tratamiento de Residuos (RISES, SIDREP, RILES, diseño y capacitación ambiental)"
       ]
     },
     {
       "name": "Prevención de Riesgos",
       "items": [
-        "Programas de prevención y reglamentos internos",
-        "Sistemas de gestión ISO 9001, 14001, 18001 e integrados",
-        "Comités Paritarios y relación OA Ley 16.744",
-        "Optimización DS-67 (sobretasa)",
-        "Gestión de riesgos según ISO 31000",
-        "Análisis de riesgos industriales",
-        "ITO en prevención de riesgos",
-        "Auditoría de cumplimiento legal"
+        "Sistemas de Gestión y Cumplimiento Legal (ISO 9001, 14001, 45001, DS-67)",
+        "Gestión y Evaluación de Riesgos Industriales (ISO 31000, análisis de riesgos, ITO preventiva)",
+        "Programas Preventivos y Reglamentos (reglamentos internos, comités, relación OA Ley 16.744)"
       ]
     },
     {
       "name": "Seguridad y Emergencias",
       "items": [
-        "Planes de emergencia y contingencia",
-        "Brigadas y simulacros (incendio, sismo, etc.)",
-        "Inspecciones y mapas de riesgos críticos",
-        "Procedimientos de trabajo seguro",
-        "Estudios de señalética e implementación",
-        "Capacitación: extintores, primeros auxilios, psicología de emergencia"
+        "Planes y Procedimientos de Emergencia (contingencia, continuidad operacional, simulacros)",
+        "Capacitación en Respuesta a Emergencias (extintores, primeros auxilios, brigadas)",
+        "Inspección y Señalización de Riesgos (mapas críticos, señalética, control de zonas)"
       ]
     },
     {
       "name": "Higiene Industrial",
       "items": [
-        "Mediciones: ruido, iluminación, temperatura, gases y vibración",
-        "Protocolos: Prexor, TMERT, ISTAS 21, Planesis",
-        "Capacitaciones e ITO en salud ocupacional"
+        "Mediciones Ambientales y Ocupacionales (ruido, iluminación, gases, vibración, temperatura)",
+        "Protocolos de Salud Ocupacional (Prexor, TMERT, ISTAS 21, Planesis)",
+        "Capacitaciones e ITO en Higiene y Salud (evaluación, formación, control en terreno)"
       ]
     },
     {
       "name": "Ergonomía",
       "items": [
-        "Estudios y diagnósticos de puestos de trabajo",
-        "Capacitación: autocuidado, pausas saludables, manejo de carga"
+        "Evaluación Ergonómica de Puestos de Trabajo (diagnóstico, rediseño, recomendaciones)",
+        "Capacitación en Ergonomía y Autocuidado (pausas saludables, manejo de carga)",
+        "Diseño de Soluciones Ergonómicas (adaptación de espacios, mejora de procesos)"
       ]
     },
     {
       "name": "Ingeniería, Mantenimiento y Operación en Minería",
       "items": [
-        "Operación y mantención de equipos de control ambiental",
-        "Aseo industrial y apoyo a interior mina y planta",
-        "Camiones aspiradores y maquinaria industrial",
-        "Estaciones de humectación y niebla seca (diseño y montaje)",
-        "Asesoría técnica en derrames y contaminación",
-        "Control de consumos de agua en faena",
-        "Obras civiles menores: arquitectura, eléctricos, sanitarios, climatización",
-        "Operación de plantas de tratamiento de aguas servidas"
+        "Operación y Mantenimiento Ambiental (equipos de control, PTAS, niebla seca, aspiradores)",
+        "Aseo y Apoyo a Faenas Mineras (aseo industrial, control hídrico, obras menores)",
+        "Asesoría Técnica y Control de Impactos (derrames, contaminación, inspección técnica)"
       ]
     }
   ]
