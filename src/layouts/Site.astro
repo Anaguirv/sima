@@ -7,6 +7,7 @@ import Footer from "@/components/Footer.astro";
 import WhyChooseSection from "@/components/WhyChooseSection.astro";
 import ContactCard from "@/components/ContactCard.astro";
 import WhatsAppButton from "@/components/WhatsAppButton.astro"; // ✅ agregado aquí
+import BackButton from "@/components/BackButton.astro";
 
 // Datos de la compañía
 import company from "@/data/company.json";
@@ -38,10 +39,10 @@ const {
 
   <body class="min-h-screen bg-white text-ink antialiased relative">
     <Navbar />
-
-    <main class="min-h-[60vh]">
-      <slot />
-    </main>
+    <BackButton /> <!-- ✅ agregado aquí -->
+      <main class="min-h-[60vh]">
+          <slot />
+      </main>
 
     {showWhyChoose && <WhyChooseSection />}
     {showContactCard && <ContactCard company={company} />}

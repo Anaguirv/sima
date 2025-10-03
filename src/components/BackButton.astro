@@ -1,0 +1,19 @@
+---
+const currentPath = Astro.url.pathname;
+const isHome = currentPath === "/";
+---
+
+{!isHome && (
+  <div class="fixed left-5 bottom-5 z-40">
+    <button
+      onclick="if (document.referrer) history.back(); else window.location.href='/'"
+      class="flex items-center gap-2 rounded-full border border-slate-200 bg-white/90 backdrop-blur px-4 py-2 text-sm font-medium text-[rgb(8,62,82)] shadow-sm hover:bg-[rgba(11,122,163,0.05)] hover:text-[rgb(11,122,163)] transition-all duration-200"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+        <path d="M15 18l-6-6 6-6" />
+      </svg>
+      Volver
+    </button>
+  </div>
+)}
