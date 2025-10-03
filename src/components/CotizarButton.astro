@@ -1,0 +1,22 @@
+---
+const scrollToContact = () => {
+  if (typeof window !== "undefined") {
+    const section = document.querySelector("#contacto") || document.querySelector("#contact");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.location.href = "/#contacto";
+    }
+  }
+};
+---
+
+<button
+  onclick="(function(){const s=document.querySelector('#contacto')||document.querySelector('#contact');if(s){s.scrollIntoView({behavior:'smooth'});}else{window.location.href='/#contacto';}})()"
+  class="fixed right-5 bottom-24 z-40 flex items-center gap-2 rounded-full bg-[rgb(11,122,163)] text-white font-semibold px-4 py-2.5 shadow-md hover:bg-[rgb(8,62,82)] hover:shadow-lg transition-all duration-300"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10m-7 8h4m-9-8h0a9 9 0 1118 0 9 9 0 01-18 0z" />
+  </svg>
+  <span class="text-sm leading-none">Solicitar cotización</span>
+</button>

@@ -9,6 +9,9 @@ import TestimonialsSection from '../components/TestimonialsSection.astro';
 import ContactCard from '../components/ContactCard.astro';
 import services from '../data/services.json';
 import company from '../data/company.json';
+import TrustedBySection from "@/components/TrustedBySection.astro";
+import KpiSection from "@/components/KpiSection.astro";
+
 
 // ⚠️ Desactivamos las secciones duplicadas del layout (ya se incluyen aquí manualmente)
 const showWhyChoose = false;
@@ -34,7 +37,9 @@ const subtitle = 'Soluciones integrales con foco en Cumplimiento, Continuidad Op
     <ServicesSection />
     <WhyChooseSection />
     <ConversationSection />
+    <KpiSection />
     <TestimonialsSection />
+    <TrustedBySection />
     <ContactCard />
   </main>
 </Site>

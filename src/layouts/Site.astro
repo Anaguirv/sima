@@ -8,6 +8,8 @@ import WhyChooseSection from "@/components/WhyChooseSection.astro";
 import ContactCard from "@/components/ContactCard.astro";
 import WhatsAppButton from "@/components/WhatsAppButton.astro"; // ✅ agregado aquí
 import BackButton from "@/components/BackButton.astro";
+import CotizarButton from "@/components/CotizarButton.astro";
+
 
 // Datos de la compañía
 import company from "@/data/company.json";
@@ -47,7 +49,7 @@ const {
     {showWhyChoose && <WhyChooseSection />}
     {showContactCard && <ContactCard company={company} />}
     <Footer />
-
+    <CotizarButton /> <!-- ✅ nuevo -->
     <!-- ✅ Botón WhatsApp global -->
     <WhatsAppButton />
   </body>

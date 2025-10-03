@@ -1,0 +1,25 @@
+---
+const clients = [
+  { name: "CMP", logo: "/images/logos/cmp.webp" },
+  { name: "Minera Los Pelambres", logo: "/images/logos/minera-los-pelambres.webp" },
+  { name: "Codelco", logo: "/images/logos/codelco.webp" },
+  { name: "Teck", logo: "/images/logos/teck.webp" },
+];
+---
+
+<section class="bg-slate-50 py-14 border-t border-slate-200">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <h2 class="text-lg font-semibold text-slate-700 tracking-wide uppercase mb-10">Confían en nosotros</h2>
+    <div class="flex flex-wrap justify-center items-center gap-10 opacity-80">
+      {clients.map((c) => (
+        <img
+          src={c.logo}
+          alt={c.name}
+          title={c.name}
+          class="h-10 md:h-12 grayscale hover:grayscale-0 transition duration-300"
+          loading="lazy"
+        />
+      ))}
+    </div>
+  </div>
+</section>

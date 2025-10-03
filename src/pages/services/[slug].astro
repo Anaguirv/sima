@@ -53,6 +53,27 @@ const { title, description, category, img } = entry.data;
       </div>
     </div>
   </section>
+  <!-- 🧱 FICHA TÉCNICA -->
+{category && (
+  <section class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pb-6 mt-2">
+    <div class="grid gap-4 sm:grid-cols-3">
+      <div class="rounded-xl border border-[rgba(11,122,163,0.15)] bg-[rgba(11,122,163,0.04)] p-4 shadow-sm">
+        <h4 class="text-[rgb(8,62,82)] font-semibold text-sm mb-1">Categoría</h4>
+        <p class="text-slate-700 text-sm">{category}</p>
+      </div>
+
+      <div class="rounded-xl border border-[rgba(11,122,163,0.15)] bg-[rgba(11,122,163,0.04)] p-4 shadow-sm">
+        <h4 class="text-[rgb(8,62,82)] font-semibold text-sm mb-1">Código de servicio</h4>
+        <p class="text-slate-700 text-sm">SVC-{entry.data.order?.toString().padStart(3, "0")}</p>
+      </div>
+
+      <div class="rounded-xl border border-[rgba(11,122,163,0.15)] bg-[rgba(11,122,163,0.04)] p-4 shadow-sm">
+        <h4 class="text-[rgb(8,62,82)] font-semibold text-sm mb-1">Duración estimada</h4>
+        <p class="text-slate-700 text-sm">Según alcance y tipo de proyecto</p>
+      </div>
+    </div>
+  </section>
+)}
 
   <!-- Contenido del .md con estilo global -->
   <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pb-16">
