@@ -6,7 +6,6 @@ import CATS from "@/data/services-categories.json";
 const entries = (await getCollection("services"))
   .sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999));
 
-// Lista de categorías: “Todas” + las del JSON
 const CATEGORIES = ["Todas", ...CATS.categories.map((c) => c.name)];
 ---
 
@@ -79,94 +78,82 @@ const CATEGORIES = ["Todas", ...CATS.categories.map((c) => c.name)];
     </div>
   </section>
 
-    <!-- Script: filtro categoría + lectura desde URL -->
+  <!-- Script: filtro categoría sin movimiento -->
   <script is:inline>
-  const chips = document.querySelectorAll('.svc-chip');
-  const select = document.getElementById('svc-filter');
-  const cards = document.querySelectorAll('.svc-card');
-  const grid = document.getElementById('svc-grid');
+    const chips = document.querySelectorAll('.svc-chip');
+    const select = document.getElementById('svc-filter');
+    const cards = document.querySelectorAll('.svc-card');
+    const grid = document.getElementById('svc-grid');
 
-  // 🧩 Suaviza el scroll hasta el grid
-  function smoothScrollToGrid() {
-    if (grid) {
-      const offsetTop = grid.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+    // 🔍 Aplica filtro a las cards según la categoría
+    function applyFilter(cat) {
+      const target = (cat || 'Todas').trim().toLowerCase();
+      cards.forEach(card => {
+        const c = (card.getAttribute('data-cat') || '').trim().toLowerCase();
+        const visible = (target === 'todas' || c === target);
+        card.style.display = visible ? '' : 'none';
+        card.style.opacity = visible ? '1' : '0';
+        card.style.transform = visible ? 'translateY(0)' : 'translateY(10px)';
+      });
     }
-  }
 
-  // 🔍 Aplica filtro a las cards según la categoría
-  function applyFilter(cat) {
-    const target = (cat || 'Todas').trim().toLowerCase();
-    cards.forEach(card => {
-      const c = (card.getAttribute('data-cat') || '').trim().toLowerCase();
-      const visible = (target === 'todas' || c === target);
-      card.style.display = visible ? '' : 'none';
-      // transición de aparición
-      card.style.opacity = visible ? '1' : '0';
-      card.style.transform = visible ? 'translateY(0)' : 'translateY(10px)';
-    });
-  }
+    // 🎨 Marca visualmente la categoría activa
+    function setActive(cat) {
+      const target = (cat || 'Todas').trim();
+      chips.forEach(btn => {
+        const match = btn.getAttribute('data-cat') === target;
+        btn.setAttribute('aria-pressed', match ? 'true' : 'false');
+        btn.classList.toggle('bg-[rgba(11,122,163,.08)]', match);
+        btn.classList.toggle('border-[rgba(11,122,163,.25)]', match);
+        btn.classList.toggle('text-[rgb(8,62,82)]', match);
+      });
+      if (select) select.value = target;
+    }
 
-  // 🎨 Marca visualmente la categoría activa
-  function setActive(cat) {
-    const target = (cat || 'Todas').trim();
+    // 🧭 Guarda y lee filtro actual desde la URL
+    function updateURL(cat) {
+      history.replaceState(null, '', `?cat=${encodeURIComponent(cat)}`);
+    }
+
+    // 💾 Guarda preferencia del usuario en localStorage
+    function saveFilter(cat) {
+      localStorage.setItem('svc-last-cat', cat);
+    }
+    function loadFilter() {
+      return localStorage.getItem('svc-last-cat') || 'Todas';
+    }
+
+    // 🖱️ Eventos: clics en chips (desktop)
     chips.forEach(btn => {
-      const match = btn.getAttribute('data-cat') === target;
-      btn.setAttribute('aria-pressed', match ? 'true' : 'false');
-      btn.classList.toggle('bg-[rgba(11,122,163,.08)]', match);
-      btn.classList.toggle('border-[rgba(11,122,163,.25)]', match);
-      btn.classList.toggle('text-[rgb(8,62,82)]', match);
+      btn.addEventListener('click', () => {
+        const cat = btn.getAttribute('data-cat');
+        setActive(cat);
+        applyFilter(cat);
+        updateURL(cat);
+        saveFilter(cat);
+      });
     });
-    if (select) select.value = target;
-  }
 
-  // 🧭 Guarda y lee filtro actual desde la URL
-  function updateURL(cat) {
-    history.replaceState(null, '', `?cat=${encodeURIComponent(cat)}`);
-  }
+    // 📱 Eventos: cambio en el select (móvil)
+    if (select) {
+      select.addEventListener('change', (e) => {
+        const cat = e.target.value;
+        setActive(cat);
+        applyFilter(cat);
+        updateURL(cat);
+        saveFilter(cat);
+      });
+    }
 
-  // 💾 Guarda preferencia del usuario en localStorage
-  function saveFilter(cat) {
-    localStorage.setItem('svc-last-cat', cat);
-  }
+    // 🚀 Al cargar: decide qué filtro usar
+    const params = new URLSearchParams(location.search);
+    const urlCat = params.get('cat');
+    const storedCat = loadFilter();
+    const startCat = urlCat || storedCat || 'Todas';
 
-  function loadFilter() {
-    return localStorage.getItem('svc-last-cat') || 'Todas';
-  }
+    setActive(startCat);
+    applyFilter(startCat);
 
-  // 🖱️ Eventos: clics en chips (desktop)
-  chips.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const cat = btn.getAttribute('data-cat');
-      setActive(cat);
-      applyFilter(cat);
-      updateURL(cat);
-      saveFilter(cat);
-      smoothScrollToGrid();
-    });
-  });
-
-  // 📱 Eventos: cambio en el select (móvil)
-  if (select) {
-    select.addEventListener('change', (e) => {
-      const cat = e.target.value;
-      setActive(cat);
-      applyFilter(cat);
-      updateURL(cat);
-      saveFilter(cat);
-      smoothScrollToGrid();
-    });
-  }
-
-  // 🚀 Al cargar: decide qué filtro usar
-  const params = new URLSearchParams(location.search);
-  const urlCat = params.get('cat');
-  const storedCat = loadFilter();
-  const startCat = urlCat || storedCat || 'Todas';
-
-  setActive(startCat);
-  applyFilter(startCat);
-
-  // 💨 Transición sutil al cargar
-  grid.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-</script>
+    grid.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+  </script>
+</Site>
