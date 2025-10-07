@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 250">
+  <style>
+    .gold { fill: #d4af37; font-family: 'Arial Black', sans-serif; font-weight: 900; }
+    .sub { fill: #d4af37; font-family: 'Arial', sans-serif; letter-spacing: 6px; font-size: 40px; }
+  </style>
+  <!-- Texto principal -->
+  <text x="50" y="130" font-size="150" class="gold">TOR</text>
+
+  <!-- Letra Q con pico -->
+  <g transform="translate(380, 0)">
+    <text x="0" y="130" font-size="150" class="gold">Q</text>
+    <!-- Pico minero -->
+    <path d="M90 60 L145 5 L160 20 L110 80 Z" fill="#d4af37"></path>
+  </g>
+
+  <!-- Subtexto -->
+  <text x="60" y="210" class="sub">RESOURCES</text>
+</svg>

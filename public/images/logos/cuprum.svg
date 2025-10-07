@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 250">
+  <style>
+    .main { fill: #1a2a40; font-family: 'Arial Black', sans-serif; font-weight: 900; }
+  </style>
+  <!-- Montañas -->
+  <path d="M100 150 L220 70 L300 120 L400 50 L520 150 Z" fill="#1a2a40"></path>
+  <path d="M220 70 L300 120 L400 50 L340 110 L220 70 Z" fill="#9aa6b2"></path>
+
+  <!-- Texto principal (más pequeño y centrado) -->
+  <text x="130" y="220" font-size="50" class="main">CUPRUM RESOURCES</text>
+</svg>
