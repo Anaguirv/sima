@@ -1,0 +1,63 @@
+---
+import { getCollection } from "astro:content";
+import Site from "@/layouts/Site.astro";
+import "@/styles/service-detail.css";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("services");
+  return entries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const { title, description, category, img } = entry.data;
+---
+
+<Site title={`${title} – SIMA Ingeniería`} description={description}>
+  <!-- Volver -->
+  <section class="mx-auto max-w-7xl px-4 pt-6">
+    <a href="/services"
+       onclick="if(history.length>1){event.preventDefault();history.back();}"
+       class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 shadow-sm">
+      <svg width="16" height="16" viewBox="0 0 24 24" class="opacity-70">
+        <path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8l8 8l1.41-1.41L7.83 13H20z"/>
+      </svg>
+      Volver
+    </a>
+  </section>
+
+  <!-- HERO del servicio -->
+  <section class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8">
+    <div class="grid items-start gap-8 md:grid-cols-[minmax(0,520px)_1fr]">
+      <figure class="w-full overflow-hidden rounded-xl ring-1 ring-slate-200 bg-slate-100 shadow-sm">
+        <div class="relative aspect-[4/3]">
+          {img ? (
+            <img src={img} alt={title} class="absolute inset-0 h-full w-full object-cover" loading="eager" />
+          ) : (
+            <div class="absolute inset-0 grid place-items-center text-sm text-slate-500">
+              Sube una imagen a /images/services/
+            </div>
+          )}
+        </div>
+      </figure>
+
+      <div class="space-y-3">
+        <span class="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-sky-700/90">
+          <span class="h-2 w-2 rounded-full bg-sky-600"></span>{category || "Servicio"}
+        </span>
+        <h1 class="text-3xl/tight sm:text-4xl font-bold text-slate-900">{title}</h1>
+        <p class="text-base sm:text-lg text-slate-700/90">{description}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contenido del .md con estilo global -->
+  <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pb-16">
+    <article class="prose-sima max-w-none">
+      <Content />
+    </article>
+  </main>
+</Site>

@@ -1,64 +1,159 @@
 ---
-import { getCollection } from 'astro:content';
-import Layout from '../../layouts/BaseLayout.astro';
+import Site from "@/layouts/Site.astro";
+import { getCollection } from "astro:content";
+import CATS from "@/data/services-categories.json";
 
-type ServiceEntry = Awaited<ReturnType<typeof getCollection>>[number];
+const entries = (await getCollection("services"))
+  .sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999));
 
-const all = await getCollection('services');
-
-// agrupar por categoría y ordenar por "order" y "title"
-const byCategory = all.reduce<Record<string, ServiceEntry[]>>((acc, entry) => {
-  const cat = entry.data.category || 'Otros';
-  acc[cat] ||= [];
-  acc[cat].push(entry);
-  return acc;
-}, {});
-
-Object.keys(byCategory).forEach((cat) => {
-  byCategory[cat].sort((a, b) => {
-    const ao = a.data.order ?? 9999;
-    const bo = b.data.order ?? 9999;
-    if (ao !== bo) return ao - bo;
-    return a.data.title.localeCompare(b.data.title);
-  });
-});
-
-const categories = Object.keys(byCategory).sort();
+const CATEGORIES = ["Todas", ...CATS.categories.map((c) => c.name)];
 ---
 
-<Layout title="Servicios" description="Listado completo de servicios por categoría">
-  <section class="max-w-7xl mx-auto px-4 py-12">
-    <h1 class="text-3xl md:text-4xl font-bold">Servicios</h1>
-    <p class="text-slate-600 mt-2">Explora nuestros servicios por categoría.</p>
+<Site title="Servicios – SIMA Ingeniería" description="Soluciones de ingeniería, medio ambiente y operación.">
+  <!-- Hero -->
+  <section class="relative">
+    <div class="bg-gradient-to-b from-[rgba(8,62,82,.95)] to-[rgba(11,122,163,.9)]">
+      <div class="mx-auto max-w-7xl px-4 py-12 text-white">
+        <h1 class="text-3xl md:text-4xl font-bold">Servicios</h1>
+        <p class="mt-2 max-w-3xl text-white/90">
+          Filtra por categoría para explorar las soluciones de SIMA Ingeniería.
+        </p>
+      </div>
+    </div>
+  </section>
 
-    <div class="mt-8 space-y-10">
-      {categories.map((cat) => (
-        <section>
-          <h2 class="text-2xl font-semibold">{cat}</h2>
-          <ul class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {byCategory[cat].map((entry) => (
-              <li class="border rounded-xl p-5 hover:shadow transition">
-                <a href={`/services/${entry.slug}`} class="block">
-                  {entry.data.img && (
-                    <img
-                      src={`/${entry.data.img}`}
-                      alt={entry.data.title}
-                      class="h-40 w-full object-cover rounded-lg mb-3"
-                      loading="lazy"
-                    />
-                  )}
-                  <h3 class="text-lg font-semibold">{entry.data.title}</h3>
-                  {entry.data.description && (
-                    <p class="text-sm text-slate-600 mt-1 line-clamp-2">
-                      {entry.data.description}
-                    </p>
-                  )}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </section>
+  <!-- Filtros -->
+  <section class="mx-auto max-w-7xl px-4 pt-6">
+    <!-- Select móvil -->
+    <div class="sm:hidden">
+      <label for="svc-filter" class="sr-only">Filtrar por categoría</label>
+      <select id="svc-filter" class="w-full rounded-xl border border-[rgba(11,122,163,.25)] bg-white px-3 py-2 text-sm text-[rgb(8,62,82)]">
+        {CATEGORIES.map((c) => <option value={c}>{c}</option>)}
+      </select>
+    </div>
+
+    <!-- Chips desktop -->
+    <div class="hidden sm:flex flex-wrap gap-2">
+      {CATEGORIES.map((c, i) => (
+        <button
+          class={`svc-chip rounded-full border px-3 py-1.5 text-sm font-medium transition
+                  ${i === 0
+                    ? "bg-[rgba(11,122,163,.08)] border-[rgba(11,122,163,.25)] text-[rgb(8,62,82)]"
+                    : "border-slate-200 text-slate-700 hover:bg-slate-50"}`}
+          data-cat={c}
+          aria-pressed={i === 0 ? "true" : "false"}
+        >
+          {c}
+        </button>
       ))}
     </div>
   </section>
-</Layout>
+
+  <!-- Grid de servicios -->
+  <section class="mx-auto max-w-7xl px-4 py-8">
+    <div id="svc-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {entries.map(({ slug, data }) => {
+        const cat = data.category ?? "Sin categoría";
+        return (
+          <a
+            href={`/services/${slug}/`}
+            class="svc-card group rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-md transition"
+            data-cat={cat}
+          >
+            <figure class="aspect-[4/3] w-full bg-slate-100">
+              <img src={data.img ?? "/images/placeholder.webp"} alt={data.title} class="h-full w-full object-cover" loading="lazy" />
+            </figure>
+            <div class="p-4">
+              <p class="text-[11px] uppercase tracking-wide text-[rgb(11,122,163)]/80 font-semibold">{cat}</p>
+              <h3 class="mt-1 text-lg font-semibold text-ink group-hover:text-[rgb(11,122,163)]">{data.title}</h3>
+              {data.description && <p class="mt-1 text-sm text-slate-600 line-clamp-2">{data.description}</p>}
+              <span class="mt-3 inline-flex items-center gap-1 text-[rgb(11,122,163)] text-sm font-medium">
+                Ver servicio
+                <svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M13 5l7 7l-7 7v-4H4v-6h9z"/></svg>
+              </span>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </section>
+
+  <!-- Script: filtro categoría sin movimiento -->
+  <script is:inline>
+    const chips = document.querySelectorAll('.svc-chip');
+    const select = document.getElementById('svc-filter');
+    const cards = document.querySelectorAll('.svc-card');
+    const grid = document.getElementById('svc-grid');
+
+    // 🔍 Aplica filtro a las cards según la categoría
+    function applyFilter(cat) {
+      const target = (cat || 'Todas').trim().toLowerCase();
+      cards.forEach(card => {
+        const c = (card.getAttribute('data-cat') || '').trim().toLowerCase();
+        const visible = (target === 'todas' || c === target);
+        card.style.display = visible ? '' : 'none';
+        card.style.opacity = visible ? '1' : '0';
+        card.style.transform = visible ? 'translateY(0)' : 'translateY(10px)';
+      });
+    }
+
+    // 🎨 Marca visualmente la categoría activa
+    function setActive(cat) {
+      const target = (cat || 'Todas').trim();
+      chips.forEach(btn => {
+        const match = btn.getAttribute('data-cat') === target;
+        btn.setAttribute('aria-pressed', match ? 'true' : 'false');
+        btn.classList.toggle('bg-[rgba(11,122,163,.08)]', match);
+        btn.classList.toggle('border-[rgba(11,122,163,.25)]', match);
+        btn.classList.toggle('text-[rgb(8,62,82)]', match);
+      });
+      if (select) select.value = target;
+    }
+
+    // 🧭 Guarda y lee filtro actual desde la URL
+    function updateURL(cat) {
+      history.replaceState(null, '', `?cat=${encodeURIComponent(cat)}`);
+    }
+
+    // 💾 Guarda preferencia del usuario en localStorage
+    function saveFilter(cat) {
+      localStorage.setItem('svc-last-cat', cat);
+    }
+    function loadFilter() {
+      return localStorage.getItem('svc-last-cat') || 'Todas';
+    }
+
+    // 🖱️ Eventos: clics en chips (desktop)
+    chips.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const cat = btn.getAttribute('data-cat');
+        setActive(cat);
+        applyFilter(cat);
+        updateURL(cat);
+        saveFilter(cat);
+      });
+    });
+
+    // 📱 Eventos: cambio en el select (móvil)
+    if (select) {
+      select.addEventListener('change', (e) => {
+        const cat = e.target.value;
+        setActive(cat);
+        applyFilter(cat);
+        updateURL(cat);
+        saveFilter(cat);
+      });
+    }
+
+    // 🚀 Al cargar: decide qué filtro usar
+    const params = new URLSearchParams(location.search);
+    const urlCat = params.get('cat');
+    const storedCat = loadFilter();
+    const startCat = urlCat || storedCat || 'Todas';
+
+    setActive(startCat);
+    applyFilter(startCat);
+
+    grid.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+  </script>
+</Site>

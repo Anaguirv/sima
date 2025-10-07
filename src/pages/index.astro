@@ -1,6 +1,5 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Navbar from '../components/Navbar.astro';
+import Site from '../layouts/Site.astro';
 import Hero from '../components/Hero.astro';
 import IntroSection from '../components/IntroSection.astro';
 import ServicesSection from '../components/ServicesSection.astro';
@@ -8,18 +7,29 @@ import WhyChooseSection from '../components/WhyChooseSection.astro';
 import ConversationSection from '../components/ConversationSection.astro';
 import TestimonialsSection from '../components/TestimonialsSection.astro';
 import ContactCard from '../components/ContactCard.astro';
-import Footer from '../components/Footer.astro';
-
-import company from '../data/company.json';
 import services from '../data/services.json';
+import company from '../data/company.json';
+
+// ⚠️ Desactivamos las secciones duplicadas del layout (ya se incluyen aquí manualmente)
+const showWhyChoose = false;
+const showContactCard = false;
 
 const title = 'Ingeniería y Medio Ambiente para operaciones seguras y eficientes';
 const subtitle = 'Soluciones integrales con foco en cumplimiento, continuidad operacional y eficiencia.';
 ---
-<BaseLayout title={`${company.brand?.name ?? 'SIMA Ingeniería'} — ${company.brand?.tagline ?? 'Servicios de Ingeniería & Medio Ambiente'}`} description={subtitle}>
-  <Navbar />
+
+<Site
+  title={`${company.brand?.name ?? 'SIMA Ingeniería'} — ${company.brand?.tagline ?? 'Servicios de Ingeniería & Medio Ambiente'}`}
+  description={subtitle}
+  {showWhyChoose}
+  {showContactCard}
+>
   <main>
-    <Hero title={title} subtitle={subtitle} categories={services.categories.map((c) => c.name.toUpperCase())} />
+    <Hero
+      title={title}
+      subtitle={subtitle}
+      categories={services.categories.map((c) => c.name.toUpperCase())}
+    />
     <IntroSection />
     <ServicesSection />
     <WhyChooseSection />
@@ -27,5 +37,4 @@ const subtitle = 'Soluciones integrales con foco en cumplimiento, continuidad op
     <TestimonialsSection />
     <ContactCard />
   </main>
-  <Footer />
-</BaseLayout>
+</Site>

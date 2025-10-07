@@ -1,0 +1,53 @@
+---
+import "../styles/global.css";
+
+// Componentes comunes
+import Navbar from "@/components/Navbar.astro";
+import Footer from "@/components/Footer.astro";
+import WhyChooseSection from "@/components/WhyChooseSection.astro";
+import ContactCard from "@/components/ContactCard.astro";
+import WhatsAppButton from "@/components/WhatsAppButton.astro"; // ✅ agregado aquí
+
+// Datos de la compañía
+import company from "@/data/company.json";
+
+const {
+  title = `${company.brand.name} – ${company.brand.tagline}`,
+  description = company.mission,
+  ogImage = company.image,
+  showWhyChoose = true,
+  showContactCard = true,
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+
+    {description && <meta name="description" content={description} />}
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    {ogImage && <meta property="og:image" content={ogImage} />}
+
+    <link rel="icon" href="/favicon.svg" />
+    <meta name="theme-color" content="#0B7AA3" />
+  </head>
+
+  <body class="min-h-screen bg-white text-ink antialiased relative">
+    <Navbar />
+
+    <main class="min-h-[60vh]">
+      <slot />
+    </main>
+
+    {showWhyChoose && <WhyChooseSection />}
+    {showContactCard && <ContactCard company={company} />}
+    <Footer />
+
+    <!-- ✅ Botón WhatsApp global -->
+    <WhatsAppButton />
+  </body>
+</html>
