@@ -12,8 +12,7 @@ import company from '../data/company.json';
 import TrustedBySection from "@/components/TrustedBySection.astro";
 import KpiSection from "@/components/KpiSection.astro";
 
-
-// ⚠️ Desactivamos las secciones duplicadas del layout (ya se incluyen aquí manualmente)
+// ⚠️ Desactivamos las secciones duplicadas del layout
 const showWhyChoose = false;
 const showContactCard = false;
 
@@ -24,8 +23,8 @@ const subtitle = 'Soluciones integrales con foco en Cumplimiento, Continuidad Op
 <Site
   title={`${company.brand?.name ?? 'SIMA Ingeniería'} — ${company.brand?.tagline ?? 'Servicios de Ingeniería & Medio Ambiente'}`}
   description={subtitle}
-  {showWhyChoose}
-  {showContactCard}
+  showWhyChoose={showWhyChoose}
+  showContactCard={showContactCard}
 >
   <main>
     <Hero
@@ -35,7 +34,7 @@ const subtitle = 'Soluciones integrales con foco en Cumplimiento, Continuidad Op
     />
     <IntroSection />
     <ServicesSection />
-    <WhyChooseSection />
+    <WhyChooseSection /> <!-- ✅ destino de "Sobre nosotros" -->
     <ConversationSection />
     <KpiSection />
     <TestimonialsSection />
