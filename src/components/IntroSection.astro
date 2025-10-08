@@ -42,51 +42,49 @@
     </div>
 
     <!-- Imagen -->
-     <!-- Carrusel de imágenes corporativas -->
+     <!-- Carrusel de imágenes corporativas con efecto moderno -->
 <div class="order-1 md:order-2 relative rounded-2xl overflow-hidden shadow-2xl border border-[rgba(11,122,163,0.15)]">
   <div id="sima-carousel" class="relative h-[420px] md:h-[460px] w-full overflow-hidden rounded-2xl">
     <!-- Slides -->
-    <div class="carousel-track flex w-full h-full transition-transform duration-700 ease-in-out">
+    <div class="carousel-track flex w-full h-full transition-transform duration-[1400ms] ease-in-out">
       <img
         src="/images/intro/1.webp"
         alt="Equipo técnico en faena minera"
-        class="w-full h-full object-cover object-center flex-shrink-0"
+        class="slide-img w-full h-full object-cover object-center flex-shrink-0 scale-105"
         loading="lazy"
       />
       <img
         src="/images/intro/2.webp"
         alt="Monitoreo ambiental en terreno"
-        class="w-full h-full object-cover object-center flex-shrink-0"
+        class="slide-img w-full h-full object-cover object-center flex-shrink-0 scale-105"
         loading="lazy"
       />
       <img
         src="/images/intro/3.webp"
         alt="Operación de planta PTAS"
-        class="w-full h-full object-cover object-center flex-shrink-0"
+        class="slide-img w-full h-full object-cover object-center flex-shrink-0 scale-105"
         loading="lazy"
       />
       <img
         src="/images/intro/4.webp"
         alt="Operación de sistemas industriales"
-        class="w-full h-full object-cover object-center flex-shrink-0"
+        class="slide-img w-full h-full object-cover object-center flex-shrink-0 scale-105"
         loading="lazy"
       />
     </div>
 
     <!-- Overlay -->
-    <div class="absolute inset-0 bg-gradient-to-t from-[rgba(8,62,82,0.25)] to-transparent pointer-events-none"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[rgba(8,62,82,0.35)] to-transparent transition-all duration-700 pointer-events-none"></div>
 
     <!-- Caption corporativa -->
-    <div
-      class="absolute bottom-4 right-4 bg-white/95 text-[rgb(8,62,82)] text-sm px-4 py-2 rounded-lg border border-[rgba(8,62,82,0.15)] shadow-md backdrop-blur-sm"
-    >
+    <div class="absolute bottom-4 right-4 bg-white/95 text-[rgb(8,62,82)] text-sm px-4 py-2 rounded-lg border border-[rgba(8,62,82,0.15)] shadow-md backdrop-blur-sm">
       <span class="font-semibold">Presencia en terreno</span> — Faenas Norte y Centro
     </div>
 
     <!-- Controles -->
     <button
       id="prev-slide"
-      class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-[rgb(8,62,82)] p-2 rounded-full shadow-md transition backdrop-blur-sm"
+      class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white/90 text-[rgb(8,62,82)] p-2 rounded-full shadow-md transition backdrop-blur-sm hover:scale-105 hover:shadow-lg"
     >
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -95,7 +93,7 @@
 
     <button
       id="next-slide"
-      class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-[rgb(8,62,82)] p-2 rounded-full shadow-md transition backdrop-blur-sm"
+      class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white/90 text-[rgb(8,62,82)] p-2 rounded-full shadow-md transition backdrop-blur-sm hover:scale-105 hover:shadow-lg"
     >
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -104,10 +102,10 @@
 
     <!-- Indicadores -->
     <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
-      <span class="dot w-2.5 h-2.5 rounded-full bg-white/60 hover:bg-white transition"></span>
-      <span class="dot w-2.5 h-2.5 rounded-full bg-white/60 hover:bg-white transition"></span>
-      <span class="dot w-2.5 h-2.5 rounded-full bg-white/60 hover:bg-white transition"></span>
-      <span class="dot w-2.5 h-2.5 rounded-full bg-white/60 hover:bg-white transition"></span>
+      <span class="dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-[rgb(11,122,163)] transition-all shadow-sm"></span>
+      <span class="dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-[rgb(11,122,163)] transition-all shadow-sm"></span>
+      <span class="dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-[rgb(11,122,163)] transition-all shadow-sm"></span>
+      <span class="dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-[rgb(11,122,163)] transition-all shadow-sm"></span>
     </div>
   </div>
 </div>
@@ -115,33 +113,65 @@
 <!-- Script carrusel -->
 <script is:inline>
   const track = document.querySelector('#sima-carousel .carousel-track');
-  const slides = track.querySelectorAll('img');
+  const slides = track.querySelectorAll('.slide-img');
   const dots = document.querySelectorAll('#sima-carousel .dot');
   const prev = document.getElementById('prev-slide');
   const next = document.getElementById('next-slide');
 
   let index = 0;
+  let interval;
 
   function updateCarousel() {
     track.style.transform = `translateX(-${index * 100}%)`;
-    dots.forEach((d, i) => d.classList.toggle('bg-white', i === index));
+    dots.forEach((d, i) => d.classList.toggle('bg-[rgb(11,122,163)]', i === index));
+    slides.forEach((s, i) => {
+      s.classList.toggle('animate-kenburns', i === index);
+    });
   }
 
-  next.addEventListener('click', () => {
+  function nextSlide() {
     index = (index + 1) % slides.length;
     updateCarousel();
-  });
+  }
 
-  prev.addEventListener('click', () => {
+  function prevSlideHandler() {
     index = (index - 1 + slides.length) % slides.length;
     updateCarousel();
-  });
+  }
 
-  // autoplay cada 6s
-  setInterval(() => {
-    index = (index + 1) % slides.length;
+  next.addEventListener('click', () => { nextSlide(); restartAuto(); });
+  prev.addEventListener('click', () => { prevSlideHandler(); restartAuto(); });
+
+  dots.forEach((dot, i) => dot.addEventListener('click', () => {
+    index = i;
     updateCarousel();
-  }, 6000);
+    restartAuto();
+  }));
 
+  function startAuto() {
+    interval = setInterval(nextSlide, 6500);
+  }
+  function restartAuto() {
+    clearInterval(interval);
+    startAuto();
+  }
+
+  startAuto();
   updateCarousel();
 </script>
+
+<style is:global>
+  /* 🎥 Efecto Ken Burns (zoom lento) */
+  @keyframes kenburns {
+    0% { transform: scale(1.05); }
+    100% { transform: scale(1.15); }
+  }
+  .animate-kenburns {
+    animation: kenburns 8s ease-in-out forwards;
+  }
+
+  /* Sombra y borde elegante */
+  .dot.bg-\[rgb\(11,122,163\)\] {
+    box-shadow: 0 0 6px rgba(11,122,163,0.6);
+  }
+</style>

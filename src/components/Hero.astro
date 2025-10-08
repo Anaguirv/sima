@@ -12,27 +12,50 @@ const {
   ctaHref = '#servicios',
   categories = [],
 } = Astro.props as Props;
+
+const heroImages = [
+  "/images/hero/1.webp",
+  "/images/hero/2.webp",
+  "/images/hero/3.webp",
+  "/images/hero/4.webp",
+];
 ---
 
 <section
   data-hero
-  class="relative min-h-[92svh] md:min-h-screen grid place-items-center bg-cover bg-center"
-  style="background-image:url('/images/hero.jpg')"
+  class="relative min-h-[92svh] md:min-h-screen grid place-items-center overflow-hidden"
 >
-  <!-- overlays -->
+  <!-- Carrusel de fondo -->
+  <div class="absolute inset-0">
+    {heroImages.map((img, i) => (
+      <img
+        src={img}
+        alt={`Fondo ${i + 1}`}
+        class="hero-bg absolute inset-0 w-full h-full object-cover opacity-0"
+        style={`animation-delay: ${i * 8}s`}
+        loading="lazy"
+      />
+    ))}
+  </div>
+
+  <!-- Overlays -->
   <div class="absolute inset-0 hero-overlay"></div>
   <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(120%_70%_at_50%_30%,transparent,rgba(0,0,0,.25))]"></div>
 
-  <!-- contenido -->
+  <!-- Contenido -->
   <div class="relative z-10 mx-auto w-full max-w-5xl px-4 text-center">
-    <h1 class="hero-title hero-shadow text-white font-extrabold leading-tight text-4xl sm:text-5xl lg:text-[56px] lg:leading-[1.1]">{title}</h1>
-    <p class="mt-5 text-white/90 text-base sm:text-lg lg:text-xl max-w-4xl mx-auto">{subtitle}</p>
+    <h1 class="hero-title hero-shadow text-white font-extrabold leading-tight text-4xl sm:text-5xl lg:text-[56px] lg:leading-[1.1]">
+      {title}
+    </h1>
+    <p class="mt-5 text-white/90 text-base sm:text-lg lg:text-xl max-w-4xl mx-auto">
+      {subtitle}
+    </p>
     <div class="mt-8 flex justify-center">
       <a href={ctaHref} data-astro-prefetch class="btn-primary px-7 py-3">VER SERVICIOS</a>
     </div>
   </div>
 
-  <!-- barra categorías -->
+  <!-- Barra categorías -->
   {categories.length > 0 && (
     <div class="absolute bottom-0 left-0 right-0 z-10 bg-[rgba(20,28,36,.7)] backdrop-blur-sm border-t border-white/10 p-4">
       <div class="mx-auto max-w-7xl px-0">
@@ -53,3 +76,17 @@ const {
     </div>
   )}
 </section>
+
+<style is:global>
+  /* 🔁 Transición más suave con solapamiento entre imágenes */
+  @keyframes heroFade {
+    0% { opacity: 0; }
+    5%, 25% { opacity: 1; }
+    30%, 100% { opacity: 0; }
+  }
+
+  .hero-bg {
+    animation: heroFade 32s infinite;
+    transition: opacity 2s ease-in-out;
+  }
+</style>
