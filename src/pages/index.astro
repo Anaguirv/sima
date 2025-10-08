@@ -9,20 +9,22 @@ import TestimonialsSection from '../components/TestimonialsSection.astro';
 import ContactCard from '../components/ContactCard.astro';
 import services from '../data/services.json';
 import company from '../data/company.json';
+import TrustedBySection from "@/components/TrustedBySection.astro";
+import KpiSection from "@/components/KpiSection.astro";
 
-// ⚠️ Desactivamos las secciones duplicadas del layout (ya se incluyen aquí manualmente)
+// ⚠️ Desactivamos las secciones duplicadas del layout
 const showWhyChoose = false;
 const showContactCard = false;
 
-const title = 'Ingeniería y Medio Ambiente para operaciones seguras y eficientes';
-const subtitle = 'Soluciones integrales con foco en cumplimiento, continuidad operacional y eficiencia.';
+const title = 'Ingeniería y Medio Ambiente para Operaciones Seguras y Eficientes';
+const subtitle = 'Soluciones integrales con foco en Cumplimiento, Continuidad Operacional y Eficiencia.';
 ---
 
 <Site
   title={`${company.brand?.name ?? 'SIMA Ingeniería'} — ${company.brand?.tagline ?? 'Servicios de Ingeniería & Medio Ambiente'}`}
   description={subtitle}
-  {showWhyChoose}
-  {showContactCard}
+  showWhyChoose={showWhyChoose}
+  showContactCard={showContactCard}
 >
   <main>
     <Hero
@@ -32,9 +34,11 @@ const subtitle = 'Soluciones integrales con foco en cumplimiento, continuidad op
     />
     <IntroSection />
     <ServicesSection />
-    <WhyChooseSection />
+    <WhyChooseSection /> <!-- ✅ destino de "Sobre nosotros" -->
     <ConversationSection />
+    <KpiSection />
     <TestimonialsSection />
+    <TrustedBySection />
     <ContactCard />
   </main>
 </Site>

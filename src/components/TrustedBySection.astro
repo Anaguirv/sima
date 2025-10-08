@@ -1,0 +1,32 @@
+---
+const clients = [
+  { name: "TORQ", logo: "/images/logos/torq.svg" },
+  { name: "CMP", logo: "/images/logos/cmp.svg" },
+  { name: "Arqueros", logo: "/images/logos/arqueros.png" },
+  { name: "SantiagoMetals", logo: "/images/logos/santiagometals.png" },
+  { name: "Acciona", logo: "/images/logos/acciona.svg" },
+  { name: "Cuprum", logo: "/images/logos/cuprum.svg" },
+];
+---
+
+<section class="bg-white py-16 border-t border-[rgba(11,122,163,0.1)]">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <h2 class="text-lg font-semibold text-[rgb(8,62,82)] tracking-wide uppercase mb-10">
+      Confían en nosotros
+    </h2>
+
+    <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-10">
+      {clients.map((c) => (
+        <div class="flex items-center justify-center h-14 md:h-16">
+          <img
+            src={c.logo}
+            alt={c.name}
+            title={c.name}
+            class="h-full w-auto object-contain transition-transform duration-300 hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

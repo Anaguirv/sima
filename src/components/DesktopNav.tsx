@@ -11,7 +11,7 @@ type Props = { whatsapp: string };
 
 export default function DesktopNav({ whatsapp }: Props) {
   return (
-    <div className="ml-auto hidden md:flex items-center gap-6">
+    <div className="ml-auto hidden md:flex items-center gap-6 font-size: 10px">
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>

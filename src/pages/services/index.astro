@@ -9,7 +9,7 @@ const entries = (await getCollection("services"))
 const CATEGORIES = ["Todas", ...CATS.categories.map((c) => c.name)];
 ---
 
-<Site title="Servicios – SIMA Ingeniería" description="Soluciones de ingeniería, medio ambiente y operación.">
+<Site title="Servicios – SIMA Ingeniería" description="Soluciones de Ingeniería, Medio Ambiente y Operación.">
   <!-- Hero -->
   <section class="relative">
     <div class="bg-gradient-to-b from-[rgba(8,62,82,.95)] to-[rgba(11,122,163,.9)]">
@@ -50,35 +50,76 @@ const CATEGORIES = ["Todas", ...CATS.categories.map((c) => c.name)];
   </section>
 
   <!-- Grid de servicios -->
-  <section class="mx-auto max-w-7xl px-4 py-8">
-    <div id="svc-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+  <section class="mx-auto max-w-7xl px-4 py-12">
+    <div id="svc-grid" class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 transition-all">
       {entries.map(({ slug, data }) => {
         const cat = data.category ?? "Sin categoría";
         return (
           <a
             href={`/services/${slug}/`}
-            class="svc-card group rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-md transition"
+            class="svc-card group relative rounded-2xl overflow-hidden border border-[rgba(11,122,163,0.15)] bg-white shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 opacity-100 translate-y-0"
             data-cat={cat}
+            style="transition: opacity 0.4s ease, transform 0.4s ease;"
           >
-            <figure class="aspect-[4/3] w-full bg-slate-100">
-              <img src={data.img ?? "/images/placeholder.webp"} alt={data.title} class="h-full w-full object-cover" loading="lazy" />
-            </figure>
-            <div class="p-4">
-              <p class="text-[11px] uppercase tracking-wide text-[rgb(11,122,163)]/80 font-semibold">{cat}</p>
-              <h3 class="mt-1 text-lg font-semibold text-ink group-hover:text-[rgb(11,122,163)]">{data.title}</h3>
-              {data.description && <p class="mt-1 text-sm text-slate-600 line-clamp-2">{data.description}</p>}
-              <span class="mt-3 inline-flex items-center gap-1 text-[rgb(11,122,163)] text-sm font-medium">
-                Ver servicio
-                <svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M13 5l7 7l-7 7v-4H4v-6h9z"/></svg>
+            <!-- Imagen -->
+            <figure class="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
+              <img
+                src={data.img ?? '/images/placeholder.webp'}
+                alt={data.title}
+                class="h-full w-full object-cover transition-transform duration-[1500ms] ease-[cubic-bezier(.19,1,.22,1)] group-hover:scale-110"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-[rgba(8,62,82,0.55)] via-[rgba(8,62,82,0.1)] to-transparent opacity-60 group-hover:opacity-80 transition"></div>
+              <span
+                class="absolute bottom-3 left-4 text-xs font-semibold tracking-wide text-white bg-[rgba(11,122,163,0.8)] px-3 py-1.5 rounded-full backdrop-blur-sm border border-[rgba(255,255,255,0.2)] shadow"
+              >
+                {cat}
               </span>
+            </figure>
+
+            <!-- Cuerpo -->
+            <div class="p-5 flex flex-col justify-between h-full">
+              <div>
+                <h3 class="text-lg font-bold text-[rgb(8,62,82)] group-hover:text-[rgb(11,122,163)] transition-colors">
+                  {data.title}
+                </h3>
+                {data.description && (
+                  <p class="mt-2 text-sm text-slate-600 line-clamp-3 leading-relaxed">
+                    {data.description}
+                  </p>
+                )}
+              </div>
+
+              <!-- Footer -->
+              <div class="mt-4 flex items-center justify-between">
+                <span class="inline-flex items-center gap-1 text-[rgb(11,122,163)] text-sm font-semibold group-hover:gap-2 transition-all">
+                  Ver servicio
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    class="transition-transform duration-300 group-hover:translate-x-1"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M13 5l7 7l-7 7v-4H4v-6h9z"
+                    />
+                  </svg>
+                </span>
+              </div>
             </div>
+
+            <!-- Borde dinámico -->
+            <div
+              class="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-[rgba(11,122,163,0.3)] transition-all duration-500 pointer-events-none"
+            ></div>
           </a>
         );
       })}
     </div>
   </section>
 
-  <!-- Script: filtro categoría sin movimiento -->
+  <!-- Script: filtro categoría (funcional intacto) -->
   <script is:inline>
     const chips = document.querySelectorAll('.svc-chip');
     const select = document.getElementById('svc-filter');

@@ -1,0 +1,58 @@
+---
+const kpis = [
+  { value: 13, suffix: "+", label: "Años de experiencia" },
+  { value: 100, suffix: "+", label: "Proyectos ejecutados" },
+  { value: 20, suffix: "+", label: "Clientes del rubro minero" },
+];
+---
+
+<section class="bg-gradient-to-r from-[rgb(8,62,82)] to-[rgb(11,122,163)] text-white py-14 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 grid sm:grid-cols-3 gap-8 text-center relative z-10">
+    {kpis.map((k) => (
+      <div class="transform hover:scale-105 transition duration-300">
+        <p
+          class="kpi-value text-5xl font-bold tracking-tight"
+          data-target={k.value}
+          data-suffix={k.suffix}
+        >
+          {k.suffix}0
+        </p>
+        <p class="mt-2 text-sm opacity-90">{k.label}</p>
+      </div>
+    ))}
+  </div>
+
+
+
+  <!-- Script: animación de KPIs -->
+  <script is:inline>
+    const counters = document.querySelectorAll(".kpi-value");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const end = parseInt(el.dataset.target, 10);
+          const suffix = el.dataset.suffix || "";
+          let start = 0;
+          const step = Math.ceil(end / 50);
+          const duration = 1000;
+          const increment = duration / (end / step);
+
+          const timer = setInterval(() => {
+            start += step;
+            if (start >= end) {
+              el.textContent = suffix + end;
+              clearInterval(timer);
+            } else {
+              el.textContent = suffix + start;
+            }
+          }, increment);
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    counters.forEach((el) => observer.observe(el));
+  </script>
+</section>
