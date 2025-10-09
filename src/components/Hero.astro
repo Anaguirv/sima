@@ -58,15 +58,18 @@ const heroImages = [
   <!-- Barra categorías -->
   {categories.length > 0 && (
     <div class="absolute bottom-0 left-0 right-0 z-10 bg-[rgba(20,28,36,.7)] backdrop-blur-sm border-t border-white/10 p-4">
-      <div class="mx-auto max-w-7xl px-0">
+      <div class="mx-auto max-w-6xl px-0">
         <div
-          class="grid divide-x divide-white/10 text-white/90 text-sm"
-          style={`grid-template-columns: repeat(${categories.length}, minmax(0,1fr));`}
+          style={`--cols:${categories.length};`}
+          class="categories-container grid grid-cols-1 divide-y divide-white/10 text-white/90 text-sm
+                md:[grid-template-columns:repeat(var(--cols),minmax(0,1fr))] md:divide-y-0 md:divide-x"
         >
-          {categories.map((c: string) => (
+          {categories.map((c: string, index) => (
             <a
               href="#servicios"
-              class="flex items-center justify-center h-16 px-3 text-center font-semibold hover:text-white transition-colors"
+              class="category-item flex items-center justify-center h-12 px-3 text-center font-semibold hover:text-white transition-colors
+                    md:h-16"
+              data-index={index}
             >
               <span class="leading-tight">{c}</span>
             </a>
@@ -75,7 +78,7 @@ const heroImages = [
       </div>
     </div>
   )}
-</section>
+
 
 <style is:global>
   /* 🔁 Transición más suave con solapamiento entre imágenes */
@@ -89,4 +92,50 @@ const heroImages = [
     animation: heroFade 32s infinite;
     transition: opacity 2s ease-in-out;
   }
+
+  /* Estilos para el carrusel de categorías */
+  .categories-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .category-item {
+    display: none;
+  }
+
+  .category-item.active {
+    display: flex;
+  }
+
+  @media (min-width: 768px) {
+    .category-item {
+      display: flex;
+    }
+  }
 </style>
+
+<!-- Script carrusel categorías -->
+<script>
+  if (typeof window !== "undefined") {
+    const categories = document.querySelectorAll(".category-item");
+    let currentIndex = 0;
+
+    function showCategory(index: number) {
+      categories.forEach((item, i) => {
+        item.classList.toggle("active", i === index);
+      });
+    }
+
+    function startCarousel() {
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % categories.length;
+        showCategory(currentIndex);
+      }, 3000); // Cambia cada 3 segundos
+    }
+
+    if (categories.length > 0) {
+      showCategory(currentIndex);
+      startCarousel();
+    }
+  }
+</script>
