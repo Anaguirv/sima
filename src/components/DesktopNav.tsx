@@ -16,21 +16,21 @@ export default function DesktopNav({ whatsapp }: Props) {
         <NavigationMenuList>
           <NavigationMenuItem>
             <NavigationMenuLink asChild>
-              <a href="#servicios" className={navigationMenuTriggerStyle()}>
+              <a href="/#servicios" className={navigationMenuTriggerStyle()}>
                 Servicios
               </a>
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuLink asChild>
-              <a href="#sobre" className={navigationMenuTriggerStyle()}>
+              <a href="/#por-que-elegirnos" className={navigationMenuTriggerStyle()}>
                 Sobre nosotros
               </a>
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuLink asChild>
-              <a href="#contacto" className={navigationMenuTriggerStyle()}>
+              <a href="/#contacto" className={navigationMenuTriggerStyle()}>
                 Contacto
               </a>
             </NavigationMenuLink>
