@@ -11,7 +11,7 @@
     {
       "name": "Prevención de Riesgos",
       "items": [
-        "Sistemas de Gestión y Cumplimiento Legal (ISO 9001, 14001, 45001, DS-67)",
+        "Sistemas de Gestión y Cumplimiento Legal (ISO 9001, 14001, 45001, DS-67, DS-44)",
         "Gestión y Evaluación de Riesgos Industriales (ISO 31000, análisis de riesgos, ITO preventiva)",
         "Programas Preventivos y Reglamentos (reglamentos internos, comités, relación OA Ley 16.744)"
       ]
@@ -27,9 +27,10 @@
     {
       "name": "Higiene Industrial",
       "items": [
-        "Mediciones Ambientales y Ocupacionales (ruido, iluminación, gases, vibración, temperatura)",
-        "Protocolos de Salud Ocupacional (Prexor, TMERT, ISTAS 21, Planesis)",
-        "Capacitaciones e ITO en Higiene y Salud (evaluación, formación, control en terreno)"
+        "Medicioness Ambientales y Ocupacionales (ruido, iluminación, gases, vibración, temperatura)",
+        "Protocolos de Salud Ocupacional (Prexor, TMERT, Planesis, Cuestionario de Evaluación de Ambientes Laborales – Salud Mental (CEAL-SM SUSESO))",
+        "Capacitaciones e ITO en Higiene y Salud (evaluación, formación, control en terreno)",
+        "Capacitaciones y coaching en equipos de alto rendimiento HSEC"
       ]
     },
     {
