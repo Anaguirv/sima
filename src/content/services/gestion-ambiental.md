@@ -1,27 +1,27 @@
 ---
 title: "Gestión Ambiental"
-description: "Gestión integral ambiental para operaciones mineras e industriales, incluyendo DIA/EIA, monitoreos, cumplimiento legal y manejo de residuos con trazabilidad completa."
+description: "Asesoría ambiental estratégica para proyectos mineros e industriales, especializada en DIA, EIA, CPA y procesos de ambientalización para un desarrollo regulatorio sólido y sostenible."
 img: "/images/services/gestion-ambiental.webp"
 category: "Gestión Ambiental"
-keywords: ["gestión ambiental", "DIA", "EIA", "cumplimiento legal", "residuos", "monitoreos ambientales"]
+keywords: ["gestión ambiental", "DIA", "EIA", "CPA", "ambientalización de proyectos", "cumplimiento ambiental"]
 featured: true
 order: 1
 ---
 
 ## Alcance
-- **Desarrollo y tramitación de Declaraciones y Estudios de Impacto Ambiental (DIA/EIA)** conforme a los requisitos del SEIA.  
-- **Monitoreos integrales de agua, aire, ruido, flora y fauna**, con laboratorios acreditados y metodologías estandarizadas.  
-- **Diseño e implementación de planes de manejo y mitigación ambiental**, incluyendo control de emisiones y residuos peligrosos.  
-- **Gestión de residuos líquidos y sólidos (RILES, RISES, SIDREP)** con trazabilidad digital y cumplimiento normativo.  
-- **Auditorías ambientales y levantamiento de brechas regulatorias** para fiscalizaciones de la SMA y servicios sectoriales.  
+- **Elaboración, desarrollo y tramitación de Declaraciones y Estudios de Impacto Ambiental (DIA / EIA)** conforme al Sistema de Evaluación de Impacto Ambiental (SEIA).  
+- **Consultas de Pertinencia Ambiental (CPA)** para la correcta definición del ingreso de proyectos al SEIA.  
+- **Asesoramiento estratégico para la ambientalización de proyectos mineros e industriales**, integrando criterios ambientales desde la etapa de diseño hasta la operación.  
+- **Análisis de cumplimiento normativo ambiental** y alineamiento con exigencias regulatorias y sectoriales.  
+- **Acompañamiento técnico durante procesos de evaluación, fiscalización y relacionamiento con autoridades ambientales.**  
 
 ## Beneficios
-- **Cumplimiento ambiental garantizado**, reduciendo observaciones y sanciones en procesos de evaluación.  
-- **Trazabilidad y control técnico de todas las etapas del ciclo ambiental.**  
-- **Continuidad operacional con respaldo documental y monitoreo constante.**  
-- **Reputación corporativa fortalecida**, alineada con estándares internacionales y políticas ESG.  
-- **Optimización de recursos y reducción de costos** en manejo, disposición y seguimiento ambiental.  
+- **Definición temprana de la estrategia ambiental del proyecto**, reduciendo riesgos regulatorios y reprocesos.  
+- **Mayor certeza en la toma de decisiones ambientales**, respaldadas por criterios técnicos y normativos.  
+- **Optimización de plazos y costos asociados a la evaluación ambiental.**  
+- **Reducción de contingencias frente a observaciones de organismos evaluadores y fiscalizadores.**  
+- **Proyectos ambientalmente robustos**, alineados con estándares de sostenibilidad y buenas prácticas del sector.  
 
 ## Valor Agregado
-SIMA Ingeniería entrega un **enfoque integral de ingeniería y cumplimiento ambiental**, combinando experiencia técnica, gestión documental y conocimiento normativo.  
-Nuestro equipo especializado en minería y obras industriales garantiza soluciones **sostenibles, auditables y orientadas a resultados**, contribuyendo directamente a la **licencia social y regulatoria para operar**.
+En SIMA Ingeniería abordamos la gestión ambiental desde una **mirada estratégica y preventiva**, no solo como un requisito normativo.  
+Nuestro equipo combina experiencia en **minería e industria**, conocimiento regulatorio y criterio técnico para entregar soluciones que **viabilizan proyectos**, fortalecen su **sustentabilidad** y aseguran una **gestión ambiental coherente con los objetivos operacionales del negocio**.

@@ -1,26 +1,26 @@
 ---
 title: "Gestión y Tratamiento de Residuos"
-description: "Diseño e implementación de planes de manejo y tratamiento de residuos sólidos y líquidos (RILES, RISES, SIDREP), con cumplimiento ambiental y trazabilidad en terreno."
+description: "Diseño e implementación de planes de manejo y tratamiento de residuos sólidos y líquidos, integrados a la gestión ambiental de proyectos mineros e industriales."
 img: "/images/services/gestion-ambiental/residuos.webp"
 category: "Gestión Ambiental"
-keywords: ["gestión de residuos", "RILES", "RISES", "SIDREP", "tratamiento", "cumplimiento ambiental"]
+keywords: ["gestión de residuos", "RILES", "RISES", "SIDREP", "cumplimiento ambiental"]
 order: 3
 ---
 
 ## Alcance
-- **Diseño de sistemas de tratamiento de residuos líquidos y sólidos**, adaptados a faenas mineras e industriales.  
-- **Declaración y trazabilidad ambiental** a través de plataformas RISES y SIDREP, conforme a las exigencias de la SMA y SEREMI.  
-- **Planes de manejo, minimización y disposición final** con enfoque en economía circular y eficiencia operativa.  
-- **Capacitaciones ambientales e inspección técnica (ITO)** para la correcta ejecución en terreno.  
-- **Elaboración de informes de cumplimiento y seguimiento de indicadores ambientales.**
+- **Diseño de sistemas de manejo y tratamiento de residuos líquidos y sólidos**, adaptados a operaciones mineras e industriales.  
+- **Gestión de trazabilidad y declaraciones ambientales** mediante RISES y SIDREP.  
+- **Planes de manejo, minimización y disposición final**, alineados con exigencias regulatorias.  
+- **Capacitaciones e inspección técnica ambiental (ITO)** para correcta ejecución en terreno.  
+- **Seguimiento de indicadores y elaboración de informes de cumplimiento.**
 
 ## Beneficios
-- **Cumplimiento normativo y reducción de sanciones regulatorias.**  
-- **Trazabilidad completa del manejo de residuos**, desde la generación hasta la disposición.  
-- **Optimización de procesos y costos asociados al tratamiento y transporte.**  
-- **Fortalecimiento de la cultura ambiental interna y del compromiso corporativo.**  
-- **Contribución a la sostenibilidad y metas ESG** de las compañías mandantes.  
+- **Cumplimiento normativo sostenido en el tiempo.**  
+- **Trazabilidad completa del ciclo de los residuos.**  
+- **Optimización de costos y procesos operativos.**  
+- **Fortalecimiento de la cultura ambiental interna.**  
+- **Contribución directa a objetivos de sostenibilidad y ESG.**
 
 ## Valor Agregado
-SIMA Ingeniería ofrece una **gestión ambiental basada en ingeniería aplicada**, asegurando que cada proceso —desde la generación hasta el tratamiento— se ejecute con eficiencia, control y cumplimiento.  
-A través de sistemas de trazabilidad y asesoría técnica, garantizamos que cada cliente **mantenga sus operaciones dentro del marco legal y ambiental más exigente del sector minero.**
+SIMA Ingeniería integra la gestión de residuos dentro de una **visión ambiental estratégica**, asegurando control, eficiencia y cumplimiento en cada etapa del proceso.  
+Nuestro enfoque permite a los mandantes **operar con seguridad regulatoria y ambiental**, incluso en contextos de alta exigencia normativa.

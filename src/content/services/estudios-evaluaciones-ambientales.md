@@ -1,26 +1,26 @@
 ---
 title: "Estudios y Evaluaciones Ambientales (DIA/EIA)"
-description: "Elaboración de Declaraciones y Estudios de Impacto Ambiental con enfoque estratégico, cumplimiento legal y gestión técnica para proyectos mineros e industriales."
+description: "Elaboración de Declaraciones, Estudios de Impacto Ambiental y Consultas de Pertinencia, con enfoque estratégico y cumplimiento normativo para proyectos mineros e industriales."
 img: "/images/services/gestion-ambiental/dia-eia.webp"
 category: "Gestión Ambiental"
-keywords: ["DIA", "EIA", "evaluación ambiental", "cumplimiento legal", "emisiones DS138", "auditorías ambientales"]
+keywords: ["DIA", "EIA", "CPA", "evaluación ambiental", "SEIA", "cumplimiento ambiental"]
 order: 1
 ---
 
 ## Alcance
-- **Desarrollo completo de Declaraciones y Estudios de Impacto Ambiental (DIA/EIA)** conforme al SEIA y normativa vigente.  
-- **Evaluación de emisiones y fuentes fijas** bajo D.S. 138 y normativa sectorial aplicable.  
-- **Identificación y control de impactos ambientales** en agua, aire, suelo, flora y fauna.  
-- **Diseño e implementación de medidas de mitigación, compensación y seguimiento ambiental.**  
-- **Auditorías y evaluaciones de cumplimiento** de compromisos RCA y fiscalizaciones de la SMA.
+- **Elaboración integral de Declaraciones y Estudios de Impacto Ambiental (DIA / EIA)** conforme al SEIA.  
+- **Desarrollo de Consultas de Pertinencia Ambiental (CPA)** para definir correctamente el ingreso de proyectos al sistema.  
+- **Identificación, evaluación y jerarquización de impactos ambientales** en proyectos mineros e industriales.  
+- **Diseño de medidas de mitigación, compensación y seguimiento ambiental**, alineadas a la viabilidad del proyecto.  
+- **Acompañamiento técnico durante el proceso de evaluación y respuesta a observaciones de organismos competentes.**
 
 ## Beneficios
-- **Cumplimiento integral de la legislación ambiental**, evitando sanciones o retrasos en procesos de aprobación.  
-- **Optimización de tiempos en el proceso de evaluación**, gracias a una planificación técnica sólida y documentación completa.  
-- **Reducción de observaciones por parte de autoridades competentes.**  
-- **Fortalecimiento de la gestión ambiental corporativa**, con trazabilidad y control de evidencias.  
-- **Posicionamiento de la empresa como actor responsable y sostenible dentro del sector minero.**
+- **Evaluaciones ambientales sólidas y técnicamente respaldadas.**  
+- **Disminución de observaciones y reprocesos durante la evaluación.**  
+- **Claridad temprana sobre las exigencias regulatorias del proyecto.**  
+- **Mejor planificación ambiental y operacional.**  
+- **Mayor probabilidad de aprobación ambiental dentro de los plazos previstos.**
 
 ## Valor Agregado
-SIMA Ingeniería aporta una **visión estratégica y técnica en la gestión ambiental**, integrando ingeniería, cumplimiento normativo y sustentabilidad.  
-Nuestros especialistas aseguran **expedientes de alta calidad técnica**, respaldados por experiencia en proyectos de gran envergadura minera e industrial, promoviendo una **operación segura, eficiente y ambientalmente responsable.**
+SIMA Ingeniería combina **criterio técnico, experiencia sectorial y conocimiento regulatorio**, entregando evaluaciones ambientales **robustas, claras y estratégicamente orientadas**.  
+Nuestro enfoque permite que cada DIA, EIA o CPA sea una **herramienta de viabilidad**, no un obstáculo para el desarrollo del proyecto.
