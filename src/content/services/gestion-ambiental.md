@@ -12,6 +12,7 @@ order: 1
 - **Consultas de Pertinencia Ambiental (CPA)** para la correcta definición del ingreso de proyectos al SEIA.  
 - **Asesoramiento estratégico para la ambientalización de proyectos mineros e industriales**, integrando criterios ambientales desde la etapa de diseño hasta la operación.  
 - **Análisis de cumplimiento normativo ambiental** y alineamiento con exigencias regulatorias y sectoriales.  
+- **Diagnósticos, diseños e implementación de reforestaciones.**  
 - **Acompañamiento técnico durante procesos de evaluación, fiscalización y relacionamiento con autoridades ambientales.**  
 
 ## Beneficios
