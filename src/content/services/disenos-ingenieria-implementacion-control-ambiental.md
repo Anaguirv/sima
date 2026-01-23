@@ -1,7 +1,7 @@
 ---
 title: "Diseños de Ingeniería e Implementación de Equipos de Control Ambiental"
 description: "Diseños de ingeniería e implementación de soluciones de control ambiental para reducción de material particulado y emisiones en faenas mineras e industriales."
-img: "/images/services/mineria/disenos-control-ambiental-placeholder.svg"
+img: "/images/services/mineria/disenos-control-ambiental-placeholder.webp"
 category: "Ingeniería, Mantenimiento y Operación en Minería"
 keywords: ["diseños de ingeniería", "control ambiental", "humectación", "niebla seca", "supresión de polvo", "emisiones fugitivas"]
 order: 20

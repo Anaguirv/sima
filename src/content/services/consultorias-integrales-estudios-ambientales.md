@@ -1,7 +1,7 @@
 ---
 title: "Consultorías Integrales Ambientales y Desarrollo de Estudios Ambientales"
 description: "Consultorías ambientales integrales y estudios especializados para sustentar decisiones regulatorias y de diseño en proyectos mineros e industriales."
-img: "/images/services/gestion-ambiental/consultorias-estudios-ambientales-placeholder.svg"
+img: "/images/services/gestion-ambiental/consultorias-estudios-ambientales-placeholder.webp"
 category: "Gestión Ambiental"
 keywords: ["consultorías ambientales", "estudios ambientales", "aforo vial", "ruido", "vibraciones", "flora", "fauna", "arqueología", "paleontología"]
 order: 4

@@ -1,7 +1,7 @@
 ---
 title: "Obras Civiles"
 description: "Diseños de arquitectura, especialidades, permisos y construcción de infraestructura civil para operaciones mineras e industriales, con cumplimiento normativo." 
-img: "/images/services/mineria/obras-civiles-placeholder.svg"
+img: "/images/services/mineria/obras-civiles-placeholder.webp"
 category: "Ingeniería, Mantenimiento y Operación en Minería"
 keywords: ["obras civiles", "arquitectura", "especialidades", "permisos", "construcción", "minería"]
 order: 19
