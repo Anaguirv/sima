@@ -2,8 +2,16 @@
 import company from '../data/company.json';
 ---
 <footer class="bg-graphite text-white/80">
-  <div class="mx-auto max-w-7xl px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-3">
-    <p>© {new Date().getFullYear()} {company.brand.name}. Todos los derechos reservados.</p>
+  <div class="mx-auto max-w-7xl px-4 py-10 flex flex-col md:flex-row items-center justify-between gap-3">
+    <div class="flex flex-col items-center gap-1 text-center md:items-start md:text-left">
+      <img
+        src="/images/logo.png"
+        alt="SIMA Ingeniería"
+        class="h-10 md:h-12 w-auto drop-shadow-[0_2px_6px_rgba(255,255,255,0.25)]"
+        loading="lazy"
+      />
+      <p>© {new Date().getFullYear()} {company.brand.name}. Todos los derechos reservados.</p>
+    </div>
     <nav class="flex gap-4">
       <a href="/#servicios" class="hover:text-white transition-colors">Servicios</a>
       <a href="/#por-que-elegirnos" class="hover:text-white transition-colors">Sobre</a>
