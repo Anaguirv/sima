@@ -1,16 +1,19 @@
 ---
-title: "Operación y Mantenimiento Ambiental"
-description: "Operación técnica y mantenimiento de equipos de control ambiental, PTAS, sistemas de niebla seca y camiones aspiradores, garantizando eficiencia operativa y cumplimiento ambiental en faenas mineras."
+title: "Operación y Mantenimiento de Equipos de Control Ambiental"
+description: "Operación y mantenimiento de equipos de control ambiental, PTAS, sistemas de humectación y niebla seca, aspiración industrial y equipos en plantas de procesos de mineral, asegurando eficiencia operativa y cumplimiento ambiental."
 img: "/images/services/mineria/mantenimiento.webp"
 category: "Ingeniería, Mantenimiento y Operación en Minería"
-keywords: ["mantenimiento ambiental", "PTAS", "niebla seca", "camiones aspiradores", "faenas mineras"]
+keywords: ["mantenimiento ambiental", "PTAS", "niebla seca", "camiones aspiradores", "faenas mineras", "plantas de procesos", "raspadores de correas"]
 order: 16
 ---
 
 ## Alcance
 - **Operación y mantenimiento de plantas de tratamiento de aguas servidas (PTAS)** y sistemas de control ambiental.  
 - **Gestión integral de equipos de aspiración industrial y camiones vacuum**, optimizando la limpieza técnica de áreas críticas.  
-- **Implementación y control de sistemas de humectación y niebla seca**, orientados a la reducción de material particulado y emisiones.  
+- **Operación y mantenimiento de sistemas de humectación y niebla seca.**  
+- **Mantención y operación de otros equipos en plantas de procesos de mineral.**  
+- **Mantenimiento de raspadores de correas transportadores.**  
+- **Provisión y reposición de repuestos de sistemas de control ambiental.**  
 - **Supervisión técnica en terreno**, asegurando la continuidad y rendimiento de los sistemas instalados.  
 - **Capacitación al personal operador** y seguimiento de indicadores de desempeño ambiental y operacional.  
 
