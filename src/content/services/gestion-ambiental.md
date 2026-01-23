@@ -1,6 +1,6 @@
 ---
 title: "Gestión Ambiental"
-description: "Asesoría ambiental estratégica para proyectos mineros e industriales, especializada en DIA, EIA, CPA y procesos de ambientalización para un desarrollo regulatorio sólido y sostenible."
+description: "Asesoría ambiental estratégica para proyectos mineros e industriales, con foco en CPA, cumplimiento normativo y ambientalización de proyectos para un desarrollo regulatorio sólido y sostenible."
 img: "/images/services/gestion-ambiental.webp"
 category: "Gestión Ambiental"
 keywords: ["gestión ambiental", "DIA", "EIA", "CPA", "ambientalización de proyectos", "cumplimiento ambiental"]
