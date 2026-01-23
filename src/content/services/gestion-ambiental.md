@@ -9,7 +9,6 @@ order: 1
 ---
 
 ## Alcance
-- **Elaboración, desarrollo y tramitación de Declaraciones y Estudios de Impacto Ambiental (DIA / EIA)** conforme al Sistema de Evaluación de Impacto Ambiental (SEIA).  
 - **Consultas de Pertinencia Ambiental (CPA)** para la correcta definición del ingreso de proyectos al SEIA.  
 - **Asesoramiento estratégico para la ambientalización de proyectos mineros e industriales**, integrando criterios ambientales desde la etapa de diseño hasta la operación.  
 - **Análisis de cumplimiento normativo ambiental** y alineamiento con exigencias regulatorias y sectoriales.  
