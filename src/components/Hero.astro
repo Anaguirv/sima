@@ -33,7 +33,7 @@ const heroImages = [
         src={img}
         alt={`Fondo ${i + 1}`}
         class="hero-bg absolute inset-0 w-full h-full object-cover opacity-0"
-        style={`animation-delay: ${i * 8}s`}
+        style={`animation-delay: ${i * 4}s`}
         loading="lazy"
       />
     ))}
@@ -90,7 +90,7 @@ const heroImages = [
   }
 
   .hero-bg {
-    animation: heroFade 32s infinite;
+    animation: heroFade 21s infinite;
     transition: opacity 2s ease-in-out;
   }
 
