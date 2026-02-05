@@ -1,11 +1,15 @@
----
-/** Bloque introductorio “Sobre SIMA Ingeniería” versión ejecutiva-minera */
----
+<!-- =========================
+ Bloque “Sobre SIMA Ingeniería”
+========================= -->
 <section class="relative overflow-hidden bg-gradient-to-br from-[rgb(245,249,251)] via-[rgb(240,247,250)] to-white">
-  <div class="absolute inset-0 pointer-events-none opacity-10" style="background-image: radial-gradient(circle at 1px 1px, rgba(8,62,82,0.2) 1px, transparent 0); background-size: 28px 28px;"></div>
+  <div class="absolute inset-0 pointer-events-none opacity-10"
+       style="background-image: radial-gradient(circle at 1px 1px, rgba(8,62,82,0.2) 1px, transparent 0);
+              background-size: 28px 28px;">
+  </div>
 
   <div class="relative z-10 mx-auto max-w-7xl px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
-    <!-- Texto institucional -->
+
+    <!-- ================= TEXTO ================= -->
     <div class="order-2 md:order-1">
       <div class="inline-flex items-center gap-3">
         <img
@@ -14,14 +18,18 @@
           class="h-10 md:h-12 w-auto drop-shadow-[0_2px_6px_rgba(11,122,163,0.25)]"
           loading="lazy"
         />
-        <!-- <p class="text-sm uppercase tracking-wider text-[rgb(11,122,163)] font-semibold">SIMA Ingeniería</p> -->
       </div>
+
       <h2 class="mt-3 text-3xl md:text-4xl font-bold text-[rgb(8,62,82)] leading-tight">
-        Ingeniería aplicada a la <span class="text-[rgb(11,122,163)]">Sostenibilidad y productividad Minera</span>
+        Ingeniería aplicada a la
+        <span class="text-[rgb(11,122,163)]">Sostenibilidad y productividad Minera</span>
       </h2>
+
       <p class="mt-4 text-[rgb(51,54,58)]/90 text-base max-w-xl">
-        Acompañamos a empresas mineras e industriales en el cumplimiento normativo, la eficiencia operacional y la gestión ambiental integral. 
-        Combinamos ingeniería, terreno y estrategia para elevar los estándares técnicos de cada operación.
+        Acompañamos a empresas mineras e industriales en el cumplimiento normativo,
+        la eficiencia operacional y la gestión ambiental integral.
+        Combinamos ingeniería, terreno y estrategia para elevar los estándares técnicos
+        de cada operación.
       </p>
 
       <ul class="mt-6 grid gap-3 text-[rgb(51,54,58)]/90">
@@ -40,94 +48,109 @@
       </ul>
 
       <div class="mt-8 flex flex-wrap gap-4">
-        <a href="/services" class="inline-flex items-center gap-2 rounded-xl bg-[rgb(11,122,163)] text-white font-semibold px-6 py-3 shadow hover:bg-[rgb(8,62,82)] transition">
+        <a href="/services"
+           class="inline-flex items-center gap-2 rounded-xl bg-[rgb(11,122,163)] text-white font-semibold px-6 py-3 shadow hover:bg-[rgb(8,62,82)] transition">
           Ver servicios
         </a>
-        <a href="#contacto" class="inline-flex items-center gap-2 rounded-xl border border-[rgb(11,122,163)] text-[rgb(11,122,163)] font-semibold px-6 py-3 hover:bg-[rgb(11,122,163)] hover:text-white transition">
+        <a href="#contacto"
+           class="inline-flex items-center gap-2 rounded-xl border border-[rgb(11,122,163)]
+                  text-[rgb(11,122,163)] font-semibold px-6 py-3
+                  hover:bg-[rgb(11,122,163)] hover:text-white transition">
           Contáctanos
         </a>
       </div>
     </div>
 
-    <!-- Imagen -->
-     <!-- Carrusel de imágenes corporativas con efecto moderno -->
-<div class="order-1 md:order-2 relative rounded-2xl overflow-hidden shadow-2xl border border-[rgba(11,122,163,0.15)]">
-  <div id="sima-carousel" class="relative h-[420px] md:h-[460px] w-full overflow-hidden rounded-2xl">
-    <!-- Slides -->
-    <div class="carousel-track flex w-full h-full transition-transform duration-[1400ms] ease-in-out">
-      <img
-        src="/images/intro/1.webp"
-        alt="Equipo técnico en faena minera"
-        class="slide-img w-full h-full object-cover object-center flex-shrink-0 scale-105"
-        loading="lazy"
-      />
-      <img
-        src="/images/intro/2.webp"
-        alt="Monitoreo ambiental en terreno"
-        class="slide-img w-full h-full object-cover object-center flex-shrink-0 scale-105"
-        loading="lazy"
-      />
-      <img
-        src="/images/intro/3.webp"
-        alt="Operación de planta PTAS"
-        class="slide-img w-full h-full object-cover object-center flex-shrink-0 scale-105"
-        loading="lazy"
-      />
-      <img
-        src="/images/intro/4.webp"
-        alt="Operación de sistemas industriales"
-        class="slide-img w-full h-full object-cover object-center flex-shrink-0 scale-105"
-        loading="lazy"
-      />
-    </div>
+    <!-- ================= CARRUSEL ================= -->
+    <div class="order-1 md:order-2 relative rounded-2xl overflow-hidden shadow-2xl border border-[rgba(11,122,163,0.15)] isolate">
 
-    <!-- Overlay -->
-    <div class="absolute inset-0 bg-gradient-to-t from-[rgba(8,62,82,0.35)] to-transparent transition-all duration-700 pointer-events-none"></div>
+      <div id="sima-carousel" class="relative h-[480px] md:h-[540px] w-full overflow-hidden rounded-2xl">
 
-    <!-- Caption corporativa -->
-    <div
-      class="absolute top-3 left-1/2 -translate-x-1/2
-            bg-white/95 text-[rgb(8,62,82)] rounded-lg border border-[rgba(8,62,82,0.15)] shadow-md backdrop-blur-sm
-            px-3 py-1 text-xs text-center whitespace-nowrap
-            max-w-[90%] overflow-hidden text-ellipsis
-            md:top-4 md:left-auto md:right-4 md:translate-x-0
-            md:px-4 md:py-2 md:text-sm md:whitespace-normal md:text-left md:max-w-none">
-      <span class="font-semibold">Presencia en terreno</span> — Faenas Norte y Centro
-    </div>
+        <div class="carousel-track flex h-full transition-transform duration-[900ms] ease-in-out">
 
-    <!-- Controles -->
-    <button
-      id="prev-slide"
-      class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white/90 text-[rgb(8,62,82)] p-2 rounded-full shadow-md transition backdrop-blur-sm hover:scale-105 hover:shadow-lg"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-      </svg>
-    </button>
+          <!-- Slides -->
+          <div class="w-full h-full flex-shrink-0 overflow-hidden">
+            <img src="/images/intro/1.webp" alt="Equipo técnico en faena minera"
+                 class="slide-img w-full h-full object-cover object-[50%_35%] animate-kenburns-soft" loading="lazy" />
+          </div>
 
-    <button
-      id="next-slide"
-      class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white/90 text-[rgb(8,62,82)] p-2 rounded-full shadow-md transition backdrop-blur-sm hover:scale-105 hover:shadow-lg"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-      </svg>
-    </button>
+          <div class="w-full h-full flex-shrink-0 overflow-hidden">
+            <img src="/images/intro/2.webp" alt="Monitoreo ambiental en terreno"
+                 class="slide-img w-full h-full object-cover object-[50%_35%] animate-kenburns-soft" loading="lazy" />
+          </div>
 
-    <!-- Indicadores -->
-    <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
-      <span class="dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-[rgb(11,122,163)] transition-all shadow-sm"></span>
-      <span class="dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-[rgb(11,122,163)] transition-all shadow-sm"></span>
-      <span class="dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-[rgb(11,122,163)] transition-all shadow-sm"></span>
-      <span class="dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-[rgb(11,122,163)] transition-all shadow-sm"></span>
+          <div class="w-full h-full flex-shrink-0 overflow-hidden">
+            <img src="/images/intro/3.webp" alt="Operación de planta PTAS"
+                 class="slide-img w-full h-full object-cover object-[50%_35%] animate-kenburns-soft" loading="lazy" />
+          </div>
+
+          <div class="w-full h-full flex-shrink-0 overflow-hidden">
+            <img src="/images/intro/4.webp" alt="Operación industrial"
+                 class="slide-img w-full h-full object-cover object-[50%_35%] animate-kenburns-soft" loading="lazy" />
+          </div>
+
+          <div class="w-full h-full flex-shrink-0 overflow-hidden">
+            <img src="/images/intro/5.webp" alt="Operación industrial"
+                 class="slide-img w-full h-full object-cover object-[50%_35%] animate-kenburns-soft" loading="lazy" />
+          </div>
+
+          <div class="w-full h-full flex-shrink-0 overflow-hidden">
+            <img src="/images/intro/6.webp" alt="Operación industrial"
+                 class="slide-img w-full h-full object-cover object-[50%_35%] animate-kenburns-soft" loading="lazy" />
+          </div>
+
+          <div class="w-full h-full flex-shrink-0 overflow-hidden">
+            <img src="/images/intro/7.webp" alt="Operación industrial"
+                 class="slide-img w-full h-full object-cover object-[50%_35%] animate-kenburns-soft" loading="lazy" />
+          </div>
+
+          <div class="w-full h-full flex-shrink-0 overflow-hidden">
+            <img src="/images/intro/8.webp" alt="Operación industrial"
+                 class="slide-img w-full h-full object-cover object-[50%_35%] animate-kenburns-soft" loading="lazy" />
+          </div>
+        </div>
+
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-[rgba(8,62,82,0.35)] to-transparent pointer-events-none"></div>
+
+        <!-- Caption -->
+        <div
+          class="absolute top-3 left-1/2 -translate-x-1/2
+                 bg-white/95 text-[rgb(8,62,82)] rounded-lg border border-[rgba(8,62,82,0.15)]
+                 shadow-md backdrop-blur-sm px-3 py-1 text-xs text-center
+                 md:top-4 md:right-4 md:left-auto md:translate-x-0 md:px-4 md:py-2 md:text-sm">
+          <span class="font-semibold">Presencia en terreno</span> — Faenas Norte y Centro
+        </div>
+
+        <!-- Controles -->
+        <button id="prev-slide"
+                class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white/90
+                       text-[rgb(8,62,82)] p-2 rounded-full shadow-md transition hover:scale-105">
+          ‹
+        </button>
+
+        <button id="next-slide"
+                class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white/90
+                       text-[rgb(8,62,82)] p-2 rounded-full shadow-md transition hover:scale-105">
+          ›
+        </button>
+
+        <!-- Dots -->
+        <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
+          <span class="dot w-2.5 h-2.5 rounded-full bg-white/50"></span>
+          <span class="dot w-2.5 h-2.5 rounded-full bg-white/50"></span>
+          <span class="dot w-2.5 h-2.5 rounded-full bg-white/50"></span>
+          <span class="dot w-2.5 h-2.5 rounded-full bg-white/50"></span>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- Script carrusel -->
-<script is:inline>
+<!-- ================= SCRIPT ================= -->
+<script>
   const track = document.querySelector('#sima-carousel .carousel-track');
-  const slides = track.querySelectorAll('.slide-img');
+  const slides = track.children;
   const dots = document.querySelectorAll('#sima-carousel .dot');
   const prev = document.getElementById('prev-slide');
   const next = document.getElementById('next-slide');
@@ -138,9 +161,6 @@
   function updateCarousel() {
     track.style.transform = `translateX(-${index * 100}%)`;
     dots.forEach((d, i) => d.classList.toggle('bg-[rgb(11,122,163)]', i === index));
-    slides.forEach((s, i) => {
-      s.classList.toggle('animate-kenburns', i === index);
-    });
   }
 
   function nextSlide() {
@@ -148,44 +168,47 @@
     updateCarousel();
   }
 
-  function prevSlideHandler() {
+  function prevSlide() {
     index = (index - 1 + slides.length) % slides.length;
     updateCarousel();
   }
 
-  next.addEventListener('click', () => { nextSlide(); restartAuto(); });
-  prev.addEventListener('click', () => { prevSlideHandler(); restartAuto(); });
-
-  dots.forEach((dot, i) => dot.addEventListener('click', () => {
-    index = i;
-    updateCarousel();
-    restartAuto();
-  }));
-
   function startAuto() {
-    interval = setInterval(nextSlide, 6500);
+    interval = setInterval(nextSlide, 4500);
   }
+
   function restartAuto() {
     clearInterval(interval);
     startAuto();
   }
 
-  startAuto();
+  next.addEventListener('click', () => { nextSlide(); restartAuto(); });
+  prev.addEventListener('click', () => { prevSlide(); restartAuto(); });
+
+  dots.forEach((dot, i) =>
+    dot.addEventListener('click', () => {
+      index = i;
+      updateCarousel();
+      restartAuto();
+    })
+  );
+
   updateCarousel();
+  startAuto();
 </script>
 
-<style is:global>
-  /* 🎥 Efecto Ken Burns (zoom lento) */
-  @keyframes kenburns {
-    0% { transform: scale(1.05); }
-    100% { transform: scale(1.15); }
-  }
-  .animate-kenburns {
-    animation: kenburns 8s ease-in-out forwards;
-  }
+<!-- ================= ESTILOS ================= -->
+<style>
+@keyframes kenburns-soft {
+  0%   { transform: scale(1.03); }
+  100% { transform: scale(1.08); }
+}
 
-  /* Sombra y borde elegante */
-  .dot.bg-\[rgb\(11,122,163\)\] {
-    box-shadow: 0 0 6px rgba(11,122,163,0.6);
-  }
+.animate-kenburns-soft {
+  animation: kenburns-soft 10s ease-in-out forwards;
+}
+
+.dot.bg-\[rgb\(11,122,163\)\] {
+  box-shadow: 0 0 6px rgba(11,122,163,0.6);
+}
 </style>
